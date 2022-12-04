@@ -1,7 +1,7 @@
 {
-  "name": "fitness-tracker-v16",
-  "description": "Fitness Tracker app that only stores your data locally.",
-  "version": "0.0.16",
+  "name": "vue3-boilerplate-app-v3",
+  "description": "Vue 3 Boilerplate App to help springboard development of smaller projects.",
+  "version": "0.0.3",
   "author": "Michael Joy",
   "license": "MIT",
   "private": true,
@@ -55,10 +55,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/michael-255/fitness-tracker-v16.git"
+    "url": "git+https://github.com/michael-255/vue3-boilerplate-app-v3.git"
   },
   "bugs": {
-    "url": "https://github.com/michael-255/fitness-tracker-v16/issues"
+    "url": "https://github.com/michael-255/vue3-boilerplate-app-v3/issues"
   },
-  "homepage": "https://github.com/michael-255/fitness-tracker-v16#readme"
+  "homepage": "https://github.com/michael-255/vue3-boilerplate-app-v3#readme"
 }

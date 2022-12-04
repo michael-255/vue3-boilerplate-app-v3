@@ -29,5 +29,5 @@ export default defineConfig({
    * https://github.com/my-username/my-app-repo
    * /my-app-repo/
    */
-  base: '/fitness-tracker-v16/',
+  base: '/vue3-boilerplate-app-v3/',
 })

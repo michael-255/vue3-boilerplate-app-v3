@@ -20,14 +20,18 @@ Reference `ideas-scratch` for many of the changes you want to make.
   - [ ] `bugs`
   - [ ] `homepage`
 
-- [ ] Update `base` in `~/vite.config.ts` to your repository name for deployments to work
-- [ ] Update `AppString` in `~/src/constants/ui/string-enums.ts` to represent your app
-- [ ] Update `title` in `~/index.html` to reflect the app name you use in `ui-enums.ts`
+- [ ] Update certain code files
+
+  - [ ] Update `base` in `~/vite.config.ts` to your repository name for deployments to work
+  - [ ] Update `AppString` enums in `~/src/constants/ui/string-enums.ts` to represent your app
+  - [ ] Update `title` in `~/index.html` to reflect the app name you use in `ui-enums.ts`
+  - [ ] Update `name` and `short_name` in `~/public/site.webmanifest` the app name
+  - [ ] Update `start_url` in `~/public/site.webmanifest` to deployed website address (home)
 
 - [ ] Update `GitHub` repository settings
 
   - [ ] Add a Description
-  - [ ] Add the GitHub Pages website
+  - [ ] Add the Website
   - [ ] Add Topics
   - [ ] Update the `Include in the home page` section
 
@@ -39,7 +43,8 @@ Reference `ideas-scratch` for many of the changes you want to make.
 
   - [ ] Change README main heading to your project name
   - [ ] Add detailed project description
-  - [ ] Remove unneeded sections (even this one)
+  - [ ] Update the `Credits` section as needed
+  - [ ] Remove unneeded sections (even this one once you are done)
 
 ## Table of Contents
 
@@ -186,11 +191,4 @@ See [Vite Configuration Reference](https://vitejs.dev/config/).
 
 ## Credits
 
-App favicon was generated using the following graphics from Twitter Twemoji:
-
-- Graphics Title: 1f3cb-fe0f-200d-2642-fe0f.svg
-- Graphics Author: Copyright 2020 Twitter, Inc and other contributors
-  (<https://github.com/twitter/twemoji>)
-- Graphics Source:
-  <https://github.com/twitter/twemoji/blob/master/assets/svg/1f3cb-fe0f-200d-2642-fe0f.svg>
-- Graphics License: CC-BY 4.0 (<https://creativecommons.org/licenses/by/4.0/>)
+Recognize the work of anyone whose material you used in the project here.

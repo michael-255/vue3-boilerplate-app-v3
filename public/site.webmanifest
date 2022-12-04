@@ -1,7 +1,7 @@
 {
-  "name": "Fitness Tracker",
-  "short_name": "Fitness Tracker",
-  "start_url": "https://michael-255.github.io/fitness-tracker-v16/",
+  "name": "Vue 3 Boilerplate App",
+  "short_name": "Vue 3 Boilerplate App",
+  "start_url": "https://michael-255.github.io/vue3-boilerplate-app-v3/",
   "theme_color": "#1976D2",
   "background_color": "#000000",
   "display": "standalone",
