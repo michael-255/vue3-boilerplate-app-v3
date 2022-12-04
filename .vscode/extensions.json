@@ -1,0 +1,19 @@
+{
+  "recommendations": [
+    // Syntax highlighting for Vue/TypeScript
+    "vue.volar",
+    "vue.vscode-typescript-vue-plugin",
+    // JavaScript linting
+    "dbaeumer.vscode-eslint",
+    // CSS, LESS, SCSS linting
+    "stylelint.vscode-stylelint",
+    // MarkDown linting
+    "DavidAnson.vscode-markdownlint",
+    // Code formatting
+    "esbenp.prettier-vscode",
+    // Git information in editor
+    "eamodio.gitlens",
+    // Better VSCode icons
+    "pkief.material-icon-theme"
+  ]
+}
