@@ -39,6 +39,8 @@ Reference `ideas-scratch` for many of the changes you want to make.
     - [ ] Uncheck `Packages`
     - [ ] Uncheck `Environments`
 
+- [ ] Generate a new Favicon here: <https://favicon.io/> (credit original artists)
+
 - [ ] Update `README.md`
 
   - [ ] Change README main heading to your project name
