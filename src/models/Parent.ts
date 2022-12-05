@@ -1,7 +1,7 @@
 import type { Field, MeasurementInputs, ExerciseInputs } from '@/constants/model'
-import type { IDBCoreObject } from '@/models/_Core'
+import type { IDBCore } from '@/models/Core'
 
-export interface IDBParentObject extends IDBCoreObject {
+export interface IDBParent extends IDBCore {
   [Field.NAME]: string
   [Field.DESCRIPTION]: string
   [Field.FAVORITE]: boolean

@@ -1,6 +1,6 @@
 import type { Field, Severity } from '@/constants/model'
 
-export interface IDBLogObject {
+export interface IDBLog {
   [Field.ID]: string
   [Field.CREATED_TIMESTAMP]: string
   [Field.SEVERITY]: Severity

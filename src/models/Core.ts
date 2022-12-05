@@ -1,6 +1,6 @@
 import type { Field, CoreType, CoreStatus } from '@/constants/model'
 
-export interface IDBCoreObject {
+export interface IDBCore {
   [Field.TYPE]: CoreType
   [Field.ID]: string
   [Field.CREATED_TIMESTAMP]: string

@@ -1,7 +1,7 @@
 import type { Field } from '@/constants/model'
-import type { IDBCoreObject } from '@/models/_Core'
+import type { IDBCore } from '@/models/Core'
 
-export interface IDBRecordObject extends IDBCoreObject {
+export interface IDBRecord extends IDBCore {
   [Field.PARENT_ID]: string
   [Field.NOTE]: string
   [Field.MEASUREMENT_VALUES]?: number[]
