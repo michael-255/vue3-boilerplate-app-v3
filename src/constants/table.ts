@@ -1,4 +1,4 @@
-import type { Field } from '@/constants/table-types/field'
+import type { Field } from '@/constants/model'
 
 /**
  * Dexie table names used by the DexieWrapper service.
@@ -11,21 +11,10 @@ export enum AppTable {
 }
 
 /**
- * Operations that are available for tables.
- */
-export enum Operation {
-  NONE = 'None',
-  CREATE = 'Create',
-  UPDATE = 'Update',
-  DELETE = 'Delete',
-  CLEAR = 'Clear',
-  REPORT = 'Report',
-}
-
-/**
  * Properties used to display data items in a QTable.
+ * Use "hidden_id" for column "0" so a truncated version can be shown.
  */
-export type DataTableProps = {
+export type ColumnProps = {
   name: Field | 'hidden_id'
   label: string
   align: string

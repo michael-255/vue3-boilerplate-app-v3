@@ -1,5 +1,5 @@
-import type { Field } from '@/constants/table-types/field'
-import type { IDBCoreObject } from '@/constants/table-types/core'
+import type { Field } from '@/constants/model'
+import type { IDBCoreObject } from '@/models/_Core'
 
 export interface IDBRecordObject extends IDBCoreObject {
   [Field.PARENT_ID]: string

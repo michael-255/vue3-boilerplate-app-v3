@@ -1,12 +1,4 @@
-import type { Field } from '@/constants/table-types/field'
-
-export enum Severity {
-  DEBUG = 'Debug',
-  INFO = 'Info',
-  WARN = 'Warning',
-  ERROR = 'Error',
-  CRITICAL = 'Critical',
-}
+import type { Field, Severity } from '@/constants/model'
 
 export interface IDBLogObject {
   [Field.ID]: string
