@@ -7,6 +7,7 @@ projects. Read through this README to have a better understanding of how this pr
 
 Reference `ideas-scratch` for many of the changes you want to make.
 
+- [ ] Use `composables` for `useDBCommon`, `useDBParents`, `useDBRecords`
 - [ ] `Post Cloning Steps` (+cleanup)
 
 ## Post Cloning Steps

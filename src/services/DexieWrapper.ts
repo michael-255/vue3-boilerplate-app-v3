@@ -1,4 +1,5 @@
 import Dexie, { type Table } from 'dexie'
+import { AppString } from '@/constants/app'
 import type { IDBParent } from '@/models/Parent'
 import type { IDBRecord } from '@/models/Record'
 import type { IDBSetting } from '@/models/Setting'
@@ -23,3 +24,8 @@ export class DexieWrapper extends Dexie {
     })
   }
 }
+
+/**
+ * Preconfigured DexieWrapper
+ */
+export const dexieWrapper = new DexieWrapper(`${AppString.APP_NAME} v${AppString.VERSION}`)

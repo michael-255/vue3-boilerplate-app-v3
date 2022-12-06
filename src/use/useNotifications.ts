@@ -1,11 +1,10 @@
 import { useQuasar } from 'quasar'
-import { Icon } from '@/constants/ui/icon-enums'
-import { NotifyColor } from '@/constants/ui/color-enums'
+import { type AppObject, AppColor, Icon } from '@/constants/app'
 
 /**
  * Simple customizable notifications.
  */
-export function useNotifications(): { [x: string]: any } {
+export function useNotifications(): AppObject {
   const $quasar = useQuasar()
 
   /**
@@ -20,7 +19,7 @@ export function useNotifications(): { [x: string]: any } {
   function notify(
     message: string,
     icon: Icon = Icon.INFO,
-    color: NotifyColor = NotifyColor.INFO,
+    color: AppColor = AppColor.INFO,
     multiLine = false,
     position:
       | 'top-left'

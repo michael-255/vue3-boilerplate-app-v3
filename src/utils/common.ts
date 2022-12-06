@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from 'uuid'
 import { DateTime } from 'luxon'
-import { Milliseconds } from '@/constants/core/data-enums'
+import { Milliseconds } from '@/constants/app'
 
 /**
  * Generates a random id using the UUID package.

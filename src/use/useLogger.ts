@@ -1,24 +1,21 @@
-import { PrettyLogger } from '@/services/__PrettyLogger'
-import { AppTable, Severity } from '@/constants/core/data-enums'
-import { Icon } from '@/constants/ui/icon-enums'
-import { NotifyColor } from '@/constants/ui/color-enums'
-import { AppString } from '@/constants/ui/string-enums'
-import { DB } from '@/services/LocalDatabase'
-import { Log } from '@/models/__Log'
+import { Severity } from '@/constants/model'
+import { Icon, AppColor } from '@/constants/app'
+import { logger } from '@/services/PrettyLogger'
 import { useNotifications } from '@/use/useNotifications'
 import useSettingsStore from '@/stores/settings'
+import useDBCommon from '@/use/useDBCommon'
 
 /**
- * Composable with utilities for logging, notifications, and basic dialogs.
+ * Utilities for logging that include notifications and database entries.
  * Never awaiting for any logging calls. Don't want to slow down the UI.
  */
 export function useLogger(): { [x: string]: any } {
-  const logger = new PrettyLogger(AppString.APP_NAME)
   const settingsStore = useSettingsStore()
+  const { addLog } = useDBCommon()
   const { notify } = useNotifications()
 
   /**
-   * Log object with common logger functions. Output can be controled by DEBUG and NOTIFY refs.
+   * Log object with common logger functions.
    * - debug
    * - info
    * - warn
@@ -32,13 +29,13 @@ export function useLogger(): { [x: string]: any } {
      * - Never saved in DB
      * - Suppressable notifications
      */
-    debug: (details: string, error?: Error | any) => {
-      const severity = Severity.DEBUG
+    debug: (label: string, error?: Error | any, location?: string) => {
       if (settingsStore.showConsoleLogs) {
-        logger.debug(`[${severity}]`, details, error)
+        logger.debug(`[${Severity.DEBUG}]`, label, location, error)
       }
+
       if (settingsStore.showDebugMessages) {
-        notify(`${severity} - ${details}`, Icon.DEBUG, NotifyColor.DEBUG)
+        notify(label, Icon.DEBUG, AppColor.DEBUG)
       }
     },
     /**
@@ -47,15 +44,18 @@ export function useLogger(): { [x: string]: any } {
      * - Can turn off DB saving
      * - Cannot suppress notifications
      */
-    info: (details: string, error?: Error | any) => {
+    info: (label: string, error?: Error | any, location?: string) => {
       const severity = Severity.INFO
+
       if (settingsStore.showConsoleLogs) {
-        logger.info(`[${severity}]`, details, error)
+        logger.info(`[${severity}]`, label, location, error)
       }
+
       if (settingsStore.saveInfoMessages) {
-        DB.add(AppTable.LOGS, new Log({ error, severity, details }))
+        addLog(severity, label, error, location)
       }
-      notify(`${severity} - ${details}`, Icon.INFO, NotifyColor.INFO)
+
+      notify(label, Icon.INFO, AppColor.INFO)
     },
     /**
      * WARN
@@ -63,13 +63,16 @@ export function useLogger(): { [x: string]: any } {
      * - Cannot turn off DB saving
      * - Cannot suppress notifications
      */
-    warn: (details: string, error?: Error | any) => {
+    warn: (label: string, error?: Error | any, location?: string) => {
       const severity = Severity.WARN
+
       if (settingsStore.showConsoleLogs) {
-        logger.warn(`[${severity}]`, details, error)
+        logger.warn(`[${severity}]`, label, location, error)
       }
-      DB.add(AppTable.LOGS, new Log({ error, severity, details }))
-      notify(`${severity} - ${details}`, Icon.WARN, NotifyColor.WARN)
+
+      addLog(severity, label, error, location)
+
+      notify(label, Icon.WARN, AppColor.WARN)
     },
     /**
      * ERROR
@@ -77,13 +80,16 @@ export function useLogger(): { [x: string]: any } {
      * - Cannot turn off DB saving
      * - Cannot suppress notifications
      */
-    error: (details: string, error?: Error | any) => {
+    error: (label: string, error?: Error | any, location?: string) => {
       const severity = Severity.ERROR
+
       if (settingsStore.showConsoleLogs) {
-        logger.error(`[${severity}]`, details, error)
+        logger.error(`[${severity}]`, label, location, error)
       }
-      DB.add(AppTable.LOGS, new Log({ error, severity, details }))
-      notify(`${severity} - ${details}`, Icon.ERROR, NotifyColor.ERROR)
+
+      addLog(severity, label, error, location)
+
+      notify(label, Icon.ERROR, AppColor.ERROR)
     },
     /**
      * CRITICAL
@@ -91,27 +97,31 @@ export function useLogger(): { [x: string]: any } {
      * - Cannot turn off DB saving
      * - Cannot suppress notifications
      */
-    critical: (details: string, error?: Error | any) => {
+    critical: (label: string, error?: Error | any, location?: string) => {
       const severity = Severity.CRITICAL
+
       if (settingsStore.showConsoleLogs) {
-        logger.critical(`[${severity}]`, details, error)
+        logger.critical(`[${severity}]`, label, location, error)
       }
-      DB.add(AppTable.LOGS, new Log({ error, severity, details }))
-      notify(`${severity} - ${details}`, Icon.CRITICAL, NotifyColor.CRITICAL)
+
+      addLog(severity, label, error, location)
+
+      notify(label, Icon.CRITICAL, AppColor.CRITICAL)
     },
   }
 
   /**
    * Simple console log for testing.
-   * @param value
+   * @param args REST parameter for all arguments
    */
-  function consoleDebug(value: any): void {
+  function consoleDebug(...args: any): void {
     if (settingsStore.DEBUG) {
-      logger.log(value)
+      logger.log(args)
     }
   }
 
   return {
+    addLog,
     consoleDebug,
     log,
   }

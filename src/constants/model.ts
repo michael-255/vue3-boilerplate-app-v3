@@ -9,8 +9,7 @@ export enum Field {
   SEVERITY = 'severity',
   LABEL = 'label',
   LOCATION = 'location', // file:function
-  MESSAGE = 'message',
-  STACK = 'stack',
+  ERROR = 'error',
   // Core
   TYPE = '_type',
   ID = 'id',
