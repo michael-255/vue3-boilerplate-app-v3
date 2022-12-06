@@ -1,8 +1,7 @@
-import type { RouteMeta, RouteTab } from '@/constants/types-interfaces'
+import { RouteName, type RouteMeta, type RouteTab } from '@/constants/router'
+import { AppTable } from '@/constants/table'
+import { Icon } from '@/constants/app'
 import { createRouter, createWebHistory } from 'vue-router'
-import { RouteName } from '@/constants/ui/routing-enums'
-import { Icon } from '@/constants/ui/icon-enums'
-import { AppTable } from '@/constants/core/data-enums'
 import useDataTableStore from '@/stores/data-table'
 
 const router = createRouter({

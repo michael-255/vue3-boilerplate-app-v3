@@ -1,12 +1,11 @@
+import { type AppObject, AppColor, Icon } from '@/constants/app'
 import { useQuasar } from 'quasar'
-import { Icon } from '@/constants/ui/icon-enums'
-import { NotifyColor } from '@/constants/ui/color-enums'
 import SimpleDialog from '@/components/shared/SimpleDialog.vue'
 
 /**
  * Simple customizable dialogs.
  */
-export function useSimpleDialogs(): { [x: string]: any } {
+export function useSimpleDialogs(): AppObject {
   const $quasar = useQuasar()
 
   /**
@@ -21,7 +20,7 @@ export function useSimpleDialogs(): { [x: string]: any } {
     title: string,
     message: string,
     icon: Icon,
-    color: NotifyColor,
+    color: AppColor,
     onOkFunc: () => void
   ): void {
     $quasar
@@ -52,7 +51,7 @@ export function useSimpleDialogs(): { [x: string]: any } {
     title: string,
     message: string,
     icon: Icon = Icon.INFO,
-    color: NotifyColor = NotifyColor.INFO
+    color: AppColor = AppColor.INFO
   ): void {
     $quasar.dialog({
       component: SimpleDialog,
