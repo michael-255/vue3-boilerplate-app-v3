@@ -1,23 +1,24 @@
 <script setup lang="ts">
-import { useQuasar } from 'quasar'
+// import { useQuasar } from 'quasar'
 import { RouterView, useRoute } from 'vue-router'
 import { onMounted, type Ref, ref, watch, markRaw } from 'vue'
-import { useLogger } from '@/use/useLogger'
-import { DB } from './services/LocalDatabase'
-import useSettingsStore from '@/stores/settings'
+import useLogger from '@/use/useLogger'
+// import { DB } from './services/LocalDatabase'
+// import useSettingsStore from '@/stores/settings'
 import DefaultLayout from '@/layouts/DefaultLayout.vue'
-import OperationDialog from '@/components/shared/OperationDialog.vue'
+// import OperationDialog from '@/components/shared/OperationDialog.vue'
 
 const { log } = useLogger()
 const route = useRoute()
-const settingsStore = useSettingsStore()
-const $q = useQuasar()
+// const settingsStore = useSettingsStore()
+// const $q = useQuasar()
 const layout: Ref<any> = ref(null)
 
 onMounted(async () => {
   // Should initialize app settings here.
-  await settingsStore.initSettings(DB)
-  $q.dark.set(settingsStore.darkMode)
+  // await settingsStore.initSettings(DB)
+  // $q.dark.set(settingsStore.darkMode)
+  log.critical('TEST APP', {})
 })
 
 /**
@@ -47,5 +48,5 @@ watch(
     <RouterView />
   </component>
 
-  <OperationDialog />
+  <!-- <OperationDialog /> -->
 </template>

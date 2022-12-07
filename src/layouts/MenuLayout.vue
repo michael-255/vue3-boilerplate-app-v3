@@ -12,9 +12,8 @@ import {
   QItemSection,
   QIcon,
 } from 'quasar'
-import { RouteName } from '@/constants/ui/routing-enums'
-import { Icon } from '@/constants/ui/icon-enums'
-import { AppString } from '@/constants/ui/string-enums'
+import { RouteName } from '@/constants/router'
+import { AppString, Icon } from '@/constants/app'
 import { useRoute } from 'vue-router'
 import useMainMenuStore from '@/stores/main-menu'
 
@@ -61,50 +60,18 @@ const route = useRoute()
           <QItemSection>Dashboard</QItemSection>
         </QItem>
 
-        <QItem clickable v-ripple :to="{ name: RouteName.SETTINGS }">
+        <!-- <QItem clickable v-ripple :to="{ name: RouteName.SETTINGS }">
           <QItemSection avatar>
             <QIcon color="primary" :name="Icon.SETTINGS" />
           </QItemSection>
           <QItemSection>Settings</QItemSection>
-        </QItem>
+        </QItem> -->
 
         <QItem clickable v-ripple :to="{ name: RouteName.ABOUT }">
           <QItemSection avatar>
             <QIcon color="primary" :name="Icon.INFO" />
           </QItemSection>
           <QItemSection>About</QItemSection>
-        </QItem>
-
-        <QItem>
-          <QItemSection class="text-h6">Data Tables</QItemSection>
-        </QItem>
-
-        <QItem clickable v-ripple :to="{ name: RouteName.LOGS_AND_SETTINGS_DATA }">
-          <QItemSection avatar>
-            <QIcon color="primary" :name="Icon.LOGS" />
-          </QItemSection>
-          <QItemSection>Logs & Settings</QItemSection>
-        </QItem>
-
-        <QItem clickable v-ripple :to="{ name: RouteName.MEASUREMENTS_DATA }">
-          <QItemSection avatar>
-            <QIcon color="primary" :name="Icon.MEASUREMENTS" />
-          </QItemSection>
-          <QItemSection>Measurements</QItemSection>
-        </QItem>
-
-        <QItem clickable v-ripple :to="{ name: RouteName.EXERCISES_DATA }">
-          <QItemSection avatar>
-            <QIcon color="primary" :name="Icon.EXERCISES" />
-          </QItemSection>
-          <QItemSection>Exercises</QItemSection>
-        </QItem>
-
-        <QItem clickable v-ripple :to="{ name: RouteName.WORKOUTS_DATA }">
-          <QItemSection avatar>
-            <QIcon color="primary" :name="Icon.WORKOUTS" />
-          </QItemSection>
-          <QItemSection>Workouts</QItemSection>
         </QItem>
       </QList>
     </QDrawer>

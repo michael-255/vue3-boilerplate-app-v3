@@ -1,10 +1,10 @@
 import { useQuasar } from 'quasar'
-import { type AppObject, AppColor, Icon } from '@/constants/app'
+import { AppColor, Icon } from '@/constants/app'
 
 /**
  * Simple customizable notifications.
  */
-export function useNotifications(): AppObject {
+export function useNotifications() {
   const $quasar = useQuasar()
 
   /**

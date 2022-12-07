@@ -1,15 +1,15 @@
-import { type AppObject, AppColor, Icon } from '@/constants/app'
+import { AppColor, Icon } from '@/constants/app'
 import { useQuasar } from 'quasar'
 import SimpleDialog from '@/components/shared/SimpleDialog.vue'
 
 /**
  * Simple customizable dialogs.
  */
-export function useSimpleDialogs(): AppObject {
+export function useSimpleDialogs() {
   const $quasar = useQuasar()
 
   /**
-   * Customizable Quasar confirm dialog.
+   * Customizable Quasar dialog (confirm).
    * @param title
    * @param message
    * @param onOkFunc Non-returning function
@@ -41,7 +41,7 @@ export function useSimpleDialogs(): AppObject {
   }
 
   /**
-   * Customizable Quasar confirm dialog.
+   * Customizable Quasar dialog (dismiss).
    * @param title
    * @param message
    * @param icon

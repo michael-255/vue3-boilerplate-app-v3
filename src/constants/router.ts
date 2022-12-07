@@ -23,6 +23,7 @@ export enum RouteName {
   SETTINGS = 'Settings',
   ABOUT = 'About',
   NOT_FOUND = 'NotFound',
+  TEST = 'Test',
 }
 
 /**

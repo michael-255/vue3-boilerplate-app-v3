@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { QLayout, QPageContainer, QHeader, QToolbar, QToolbarTitle } from 'quasar'
-import { AppString } from '@/constants/ui/string-enums'
+import { AppString } from '@/constants/app'
 </script>
 
 <template>

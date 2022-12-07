@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import { QCard, QCardSection, QCardActions, QBtn } from 'quasar'
-import { Links } from '@/constants/ui/routing-enums'
-import { Icon } from '@/constants/ui/icon-enums'
-import { AppString } from '@/constants/ui/string-enums'
+import { Links } from '@/constants/router'
+import { AppString, Icon } from '@/constants/app'
 </script>
 
 <template>

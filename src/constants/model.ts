@@ -11,7 +11,7 @@ export enum Field {
   LOCATION = 'location', // file:function
   ERROR = 'error',
   // Core
-  TYPE = '_type',
+  TYPE = 'type',
   ID = 'id',
   CREATED_TIMESTAMP = 'created_timestamp',
   STATUS = 'status',

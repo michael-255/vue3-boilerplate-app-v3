@@ -1,18 +1,20 @@
 import { Severity } from '@/constants/model'
-import { Icon, AppColor, type AppObject } from '@/constants/app'
+import { Icon, AppColor } from '@/constants/app'
 import { logger } from '@/services/PrettyLogger'
 import { useNotifications } from '@/use/useNotifications'
 import useSettingsStore from '@/stores/settings'
-import useDBCommon from '@/use/useDBCommon'
+import useDBLogs from '@/use/useDBLogs'
 
 /**
  * Utilities for logging that include notifications and database entries.
  * Never awaiting for any logging calls. Don't want to slow down the UI.
  */
-export default function useLogger(): AppObject {
+export default function useLogger() {
   const settingsStore = useSettingsStore()
-  const { addLog } = useDBCommon()
+  const { addLog } = useDBLogs()
   const { notify } = useNotifications()
+
+  console.log('useLogger')
 
   /**
    * Log object with common logger functions.
@@ -115,14 +117,13 @@ export default function useLogger(): AppObject {
    * @param args REST parameter for all arguments
    */
   function consoleDebug(...args: any): void {
-    if (settingsStore.DEBUG) {
+    if (settingsStore.showConsoleLogs) {
       logger.log(args)
     }
   }
 
   return {
     log,
-    addLog,
     consoleDebug,
   }
 }

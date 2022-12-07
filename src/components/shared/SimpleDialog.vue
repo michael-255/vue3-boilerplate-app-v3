@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import type { Icon } from '@/constants/ui/icon-enums'
-import type { NotifyColor } from '@/constants/ui/color-enums'
+import type { Icon } from '@/constants/app'
+import type { AppColor } from '@/constants/app'
 import { QDialog, QCard, QCardSection, QCardActions, QIcon, QBtn } from 'quasar'
 import { useDialogPluginComponent } from 'quasar'
 
@@ -25,7 +25,7 @@ defineProps<{
   icon: Icon
   title: string
   message: string
-  color: NotifyColor
+  color: AppColor
   persistent: boolean // If it can be dismissed by clicking outside it
 }>()
 defineEmits([...useDialogPluginComponent.emits])
