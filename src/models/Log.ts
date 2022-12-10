@@ -1,3 +1,4 @@
+import type { AppObject } from '@/constants/app'
 import type { Field, Severity } from '@/constants/model'
 
 export interface IDBLog {
@@ -6,5 +7,5 @@ export interface IDBLog {
   [Field.SEVERITY]: Severity
   [Field.LABEL]: string
   [Field.LOCATION]?: string
-  [Field.ERROR]?: { [x: string]: any }
+  [Field.ERROR]?: AppObject
 }

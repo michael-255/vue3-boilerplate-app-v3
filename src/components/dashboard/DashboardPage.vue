@@ -9,7 +9,7 @@ import useDBLogs from '@/use/useDBLogs'
 import useLogger from '@/use/useLogger'
 import { onMounted } from 'vue'
 
-const { log, consoleDebug } = useLogger()
+const { log, consoleLog } = useLogger()
 const { clearTable, deleteDatabase } = useDBClear()
 const { getParentsTable } = useDBParents()
 const { getRecordsTable } = useDBRecords()
@@ -19,19 +19,15 @@ const { getLogsTable, addLog } = useDBLogs()
 onMounted(async () => {
   await initializeSettings()
 
-  // consoleDebug('test1', 'test2', 'test3', 'test4', 'test5')
+  consoleLog('test1', { a: 'test2', b: 'test3' }, 'test4', 'test5')
 
-  // log.debug('DEBUG TEST', {}, 'Dashboard')
+  log.debug('DEBUG TEST', {}, 'Dashboard')
 
-  log.critical('critical', {})
-  log.error('error', {})
-  log.warn('warn', {})
+  log.error('error', new Error('Testing Error!'), 'DashboardPage:onMounted')
 })
 
 function test() {
-  log.warn('warn', {})
-  log.error('error', {})
-  log.critical('critical', {})
+  log.critical('critical', { test: '123', something: null })
 }
 </script>
 

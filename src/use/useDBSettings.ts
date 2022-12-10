@@ -27,11 +27,28 @@ export default function useDBSettings() {
       return settings.find((s: IDBSetting) => s[Field.KEY] === key)?.value
     }
 
-    // Defaults are set after the nullish coalescing operator (works off of undefined)
+    // Defaults are set after the nullish coalescing operator, which means no setting data was found
     const darkMode = findSettingValue(SettingKey.DARK_MODE) ?? true
     const showConsoleLogs = findSettingValue(SettingKey.SHOW_CONSOLE_LOGS) ?? false
     const showDebugMessages = findSettingValue(SettingKey.SHOW_DEBUG_MESSAGES) ?? false
     const saveInfoMessages = findSettingValue(SettingKey.SAVE_INFO_MESSAGES) ?? false
+    const favoriteParentIds = findSettingValue(SettingKey.FAVORITE_PARENT_IDS) ?? []
+    const orphanedRecordIds = findSettingValue(SettingKey.ORPHANED_RECORD_IDS) ?? []
+    const activeSkippedRecordIds = findSettingValue(SettingKey.ACTIVE_SKIPPED_RECORD_IDS) ?? []
+    const parentsTableVisibleColumns = findSettingValue(
+      SettingKey.PARENTS_TABLE_VISIBLE_COLUMNS
+    ) ?? [Field.NAME]
+    const recordsTableVisibleColumns = findSettingValue(
+      SettingKey.RECORDS_TABLE_VISIBLE_COLUMNS
+    ) ?? [Field.PARENT_ID]
+    const settingsTableVisibleColumns = findSettingValue(
+      SettingKey.SETTINGS_TABLE_VISIBLE_COLUMNS
+    ) ?? [Field.KEY, Field.VALUE]
+    const logsTableVisibleColumns = findSettingValue(SettingKey.LOGS_TABLE_VISIBLE_COLUMNS) ?? [
+      Field.SEVERITY,
+      Field.LABEL,
+      Field.LOCATION,
+    ]
 
     // Set all settings before continuing
     await Promise.all([
@@ -39,13 +56,27 @@ export default function useDBSettings() {
       setSetting(SettingKey.SHOW_CONSOLE_LOGS, showConsoleLogs),
       setSetting(SettingKey.SHOW_DEBUG_MESSAGES, showDebugMessages),
       setSetting(SettingKey.SAVE_INFO_MESSAGES, saveInfoMessages),
+      setSetting(SettingKey.FAVORITE_PARENT_IDS, favoriteParentIds),
+      setSetting(SettingKey.ORPHANED_RECORD_IDS, orphanedRecordIds),
+      setSetting(SettingKey.ACTIVE_SKIPPED_RECORD_IDS, activeSkippedRecordIds),
+      setSetting(SettingKey.PARENTS_TABLE_VISIBLE_COLUMNS, parentsTableVisibleColumns),
+      setSetting(SettingKey.RECORDS_TABLE_VISIBLE_COLUMNS, recordsTableVisibleColumns),
+      setSetting(SettingKey.SETTINGS_TABLE_VISIBLE_COLUMNS, settingsTableVisibleColumns),
+      setSetting(SettingKey.LOGS_TABLE_VISIBLE_COLUMNS, logsTableVisibleColumns),
     ])
 
     // Set store state values
-    settingsStore.darkMode = darkMode
-    settingsStore.showConsoleLogs = showConsoleLogs
-    settingsStore.showDebugMessages = showDebugMessages
-    settingsStore.saveInfoMessages = saveInfoMessages
+    settingsStore[SettingKey.DARK_MODE] = darkMode
+    settingsStore[SettingKey.SHOW_CONSOLE_LOGS] = showConsoleLogs
+    settingsStore[SettingKey.SHOW_DEBUG_MESSAGES] = showDebugMessages
+    settingsStore[SettingKey.SAVE_INFO_MESSAGES] = saveInfoMessages
+    settingsStore[SettingKey.FAVORITE_PARENT_IDS] = favoriteParentIds
+    settingsStore[SettingKey.ORPHANED_RECORD_IDS] = orphanedRecordIds
+    settingsStore[SettingKey.ACTIVE_SKIPPED_RECORD_IDS] = activeSkippedRecordIds
+    settingsStore[SettingKey.PARENTS_TABLE_VISIBLE_COLUMNS] = parentsTableVisibleColumns
+    settingsStore[SettingKey.RECORDS_TABLE_VISIBLE_COLUMNS] = recordsTableVisibleColumns
+    settingsStore[SettingKey.SETTINGS_TABLE_VISIBLE_COLUMNS] = settingsTableVisibleColumns
+    settingsStore[SettingKey.LOGS_TABLE_VISIBLE_COLUMNS] = logsTableVisibleColumns
   }
 
   /**

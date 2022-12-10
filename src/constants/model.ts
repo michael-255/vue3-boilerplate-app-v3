@@ -18,7 +18,6 @@ export enum Field {
   // Parent
   NAME = 'name',
   DESCRIPTION = 'description',
-  FAVORITE = 'favorite',
   // Record
   PARENT_ID = 'parent_id',
   NOTE = 'note',
@@ -51,11 +50,9 @@ export enum CoreType {
 export enum CoreStatus {
   NONE = 'None',
   ACTIVE = 'Active',
-  SKIPPED = 'Skipped',
-  COMPLETED = 'Completed',
-  ENABLED = 'Enabled',
-  DISABLED = 'Disabled',
-  ARCHIVED = 'Archived',
+  SKIPPED = 'Skipped', // Record
+  COMPLETED = 'Completed', // Record
+  ARCHIVED = 'Archived', // Parent
 }
 
 export enum Severity {
@@ -71,9 +68,16 @@ export enum SettingKey {
   SHOW_CONSOLE_LOGS = 'show-console-logs',
   SHOW_DEBUG_MESSAGES = 'show-debug-messages',
   SAVE_INFO_MESSAGES = 'save-info-messages',
+  FAVORITE_PARENT_IDS = 'favorite-parent-ids',
+  ORPHANED_RECORD_IDS = 'orphaned-record-ids',
+  ACTIVE_SKIPPED_RECORD_IDS = 'active-skipped-record-ids',
+  PARENTS_TABLE_VISIBLE_COLUMNS = 'parents-table-visible-columns',
+  RECORDS_TABLE_VISIBLE_COLUMNS = 'records-table-visible-columns',
+  SETTINGS_TABLE_VISIBLE_COLUMNS = 'settings-table-visible-columns',
+  LOGS_TABLE_VISIBLE_COLUMNS = 'logs-table-visible-columns',
 }
 
-export type SettingValue = boolean | string[]
+export type SettingValue = boolean | string[] | null
 
 export enum MeasurementInputs {
   LBS = 'Lbs',

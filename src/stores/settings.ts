@@ -1,16 +1,13 @@
 import { defineStore } from 'pinia'
-import type { SettingValue } from '@/constants/model'
+import { SettingKey, type SettingValue } from '@/constants/model'
 
 const useSettingsStore = defineStore({
   id: 'settings',
 
-  state: () => ({
-    // The real defaults for these are set in initializeSettings
-    darkMode: false as SettingValue,
-    showConsoleLogs: false as SettingValue,
-    showDebugMessages: false as SettingValue,
-    saveInfoMessages: false as SettingValue,
-  }),
+  state: () =>
+    Object.values(SettingKey).reduce((o, key) => {
+      return { ...o, [key]: null as SettingValue }
+    }, {} as { [key in SettingKey]: SettingValue }),
 })
 
 export default useSettingsStore

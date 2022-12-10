@@ -60,6 +60,7 @@ export class PrettyLogger {
     console.trace(this.name, this.style.log, message, ...args)
   }
 
+  // Only appears as a table if you pass an iterable as the first argument
   table(...args: any): void {
     console.table(...args)
   }

@@ -1,4 +1,4 @@
-import { Severity } from '@/constants/model'
+import { SettingKey, Severity } from '@/constants/model'
 import { Icon, AppColor } from '@/constants/app'
 import { logger } from '@/services/PrettyLogger'
 import { useNotifications } from '@/use/useNotifications'
@@ -32,11 +32,11 @@ export default function useLogger() {
      * - Suppressable notifications
      */
     debug: (label: string, error?: Error | any, location?: string) => {
-      if (settingsStore.showConsoleLogs) {
+      if (settingsStore[SettingKey.SHOW_CONSOLE_LOGS]) {
         logger.debug(`[${Severity.DEBUG}]`, label, location, error)
       }
 
-      if (settingsStore.showDebugMessages) {
+      if (settingsStore[SettingKey.SHOW_DEBUG_MESSAGES]) {
         notify(label, Icon.DEBUG, AppColor.DEBUG)
       }
     },
@@ -49,11 +49,11 @@ export default function useLogger() {
     info: (label: string, error?: Error | any, location?: string) => {
       const severity = Severity.INFO
 
-      if (settingsStore.showConsoleLogs) {
+      if (settingsStore[SettingKey.SHOW_CONSOLE_LOGS]) {
         logger.info(`[${severity}]`, label, location, error)
       }
 
-      if (settingsStore.saveInfoMessages) {
+      if (settingsStore[SettingKey.SAVE_INFO_MESSAGES]) {
         addLog(severity, label, error, location)
       }
 
@@ -68,7 +68,7 @@ export default function useLogger() {
     warn: (label: string, error?: Error | any, location?: string) => {
       const severity = Severity.WARN
 
-      if (settingsStore.showConsoleLogs) {
+      if (settingsStore[SettingKey.SHOW_CONSOLE_LOGS]) {
         logger.warn(`[${severity}]`, label, location, error)
       }
 
@@ -85,7 +85,7 @@ export default function useLogger() {
     error: (label: string, error?: Error | any, location?: string) => {
       const severity = Severity.ERROR
 
-      if (settingsStore.showConsoleLogs) {
+      if (settingsStore[SettingKey.SHOW_CONSOLE_LOGS]) {
         logger.error(`[${severity}]`, label, location, error)
       }
 
@@ -102,7 +102,7 @@ export default function useLogger() {
     critical: (label: string, error?: Error | any, location?: string) => {
       const severity = Severity.CRITICAL
 
-      if (settingsStore.showConsoleLogs) {
+      if (settingsStore[SettingKey.SHOW_CONSOLE_LOGS]) {
         logger.critical(`[${severity}]`, label, location, error)
       }
 
@@ -114,16 +114,15 @@ export default function useLogger() {
 
   /**
    * Simple console log for testing.
-   * @param args REST parameter for all arguments
+   * @param message
+   * @param args
    */
-  function consoleDebug(...args: any): void {
-    if (settingsStore.showConsoleLogs) {
-      logger.log(args)
-    }
+  function consoleLog(message: any, ...args: any): void {
+    logger.log(message, ...args)
   }
 
   return {
     log,
-    consoleDebug,
+    consoleLog,
   }
 }

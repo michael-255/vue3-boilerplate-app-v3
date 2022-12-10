@@ -8,6 +8,7 @@ export enum AppTable {
   RECORDS = 'Records-Table',
   SETTINGS = 'Settings-Table',
   LOGS = 'Logs-Table',
+  // IMAGES = 'Images-Table', // TODO - Work on this at a later date
 }
 
 /**
