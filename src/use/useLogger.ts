@@ -14,8 +14,6 @@ export default function useLogger() {
   const { addLog } = useDBLogs()
   const { notify } = useNotifications()
 
-  console.log('useLogger')
-
   /**
    * Log object with common logger functions.
    * - debug

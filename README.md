@@ -7,7 +7,31 @@ projects. Read through this README to have a better understanding of how this pr
 
 Reference `ideas-scratch` for many of the changes you want to make.
 
-- [ ] Use `composables` for `useDBCommon`, `useDBParents`, `useDBRecords`
+- [ ] Reimplement `Settings` page + menu drawer button
+- [ ] Move dark mode control from `$q` into `useDBSettings`
+
+Menu Drawer:
+
+- [ ] Menu
+
+  - [ ] Dashboard or Home
+  - [ ] Settings
+  - [ ] About
+
+- [ ] Data Tables
+
+  - [ ] Measurements
+  - [ ] Exercises
+  - [ ] Logs
+  - [ ] Settings
+
+Select Box options for data tables:
+
+- [ ] `type` = Measurements or Records
+- [ ] `status` = All options
+
+Endgame:
+
 - [ ] `Post Cloning Steps` (+cleanup)
 
 ## Post Cloning Steps

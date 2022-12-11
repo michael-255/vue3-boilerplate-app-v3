@@ -1,9 +1,8 @@
 import type { IndexableType } from 'dexie'
 import { AppTable } from '@/constants/table'
-import type { Severity } from '@/constants/model'
-import type { IDBLog } from '@/models/Log'
+import { Field, type Severity } from '@/constants/model'
 import { dexieWrapper } from '@/services/DexieWrapper'
-import { uuid } from '@/utils/common'
+import type { IDBLog } from '@/models/Log'
 
 export default function useDBLogs() {
   /**
@@ -29,12 +28,11 @@ export default function useDBLogs() {
     location?: string
   ): Promise<IndexableType> {
     const log: IDBLog = {
-      id: uuid(),
-      created_timestamp: new Date().getTime(),
-      severity,
-      label,
-      location,
-      error,
+      [Field.CREATED_TIMESTAMP]: new Date().getTime(),
+      [Field.SEVERITY]: severity,
+      [Field.LABEL]: label,
+      [Field.LOCATION]: location,
+      [Field.ERROR]: error,
     }
 
     return await dexieWrapper.table(AppTable.LOGS).add(log)

@@ -13,31 +13,31 @@ export enum Field {
   // Core
   TYPE = 'type',
   ID = 'id',
-  CREATED_TIMESTAMP = 'created_timestamp',
+  CREATED_TIMESTAMP = 'createdTimestamp',
   STATUS = 'status',
   // Parent
   NAME = 'name',
   DESCRIPTION = 'description',
   // Record
-  PARENT_ID = 'parent_id',
+  PARENT_ID = 'parentId',
   NOTE = 'note',
   // Measurement Parent
-  MEASUREMENT_INPUTS = 'measurement_inputs',
+  MEASUREMENT_INPUTS = 'measurementInputs',
   // Measurement Record
-  MEASUREMENT_VALUES = 'measurement_values', // array
+  MEASUREMENT_VALUES = 'measurementValues', // array
   // Exercise Parent
-  EXERCISE_INPUTS = 'exercise_inputs',
+  EXERCISE_INPUTS = 'exerciseInputs',
   // Exercise Record
-  WEIGHT_LBS = 'weight_lbs',
+  WEIGHT_LBS = 'weightLbs',
   REPS = 'reps',
-  DISTANCE_MILES = 'distance_miles',
-  DURATION_MINUTES = 'duration_minutes',
+  DISTANCE_MILES = 'distanceMiles',
+  DURATION_MINUTES = 'durationMinutes',
   RESISTANCE = 'resistance',
   // Workout Parent
-  EXERCISE_IDS = 'exercise_ids',
+  EXERCISE_IDS = 'exerciseIds',
   // Workout Record
-  FINISHED_TIMESTAMP = 'finished_timestamp',
-  EXERCISE_RECORD_IDS = 'exercise_record_ids',
+  FINISHED_TIMESTAMP = 'finishedTimestamp',
+  EXERCISE_RECORD_IDS = 'exerciseRecordIds',
 }
 
 export enum CoreType {
@@ -49,10 +49,11 @@ export enum CoreType {
 
 export enum CoreStatus {
   NONE = 'None',
-  ACTIVE = 'Active',
   SKIPPED = 'Skipped', // Record
   COMPLETED = 'Completed', // Record
   ARCHIVED = 'Archived', // Parent
+  ENABLED = 'Enabled',
+  DISABLED = 'Disabled',
 }
 
 export enum Severity {
@@ -70,11 +71,9 @@ export enum SettingKey {
   SAVE_INFO_MESSAGES = 'save-info-messages',
   FAVORITE_PARENT_IDS = 'favorite-parent-ids',
   ORPHANED_RECORD_IDS = 'orphaned-record-ids',
-  ACTIVE_SKIPPED_RECORD_IDS = 'active-skipped-record-ids',
+  ACTIVE_RECORD_IDS = 'active-record-ids',
   PARENTS_TABLE_VISIBLE_COLUMNS = 'parents-table-visible-columns',
   RECORDS_TABLE_VISIBLE_COLUMNS = 'records-table-visible-columns',
-  SETTINGS_TABLE_VISIBLE_COLUMNS = 'settings-table-visible-columns',
-  LOGS_TABLE_VISIBLE_COLUMNS = 'logs-table-visible-columns',
 }
 
 export type SettingValue = boolean | string[] | null

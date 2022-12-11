@@ -10,12 +10,12 @@ const router = createRouter({
       meta: { layout: 'MenuLayout' } as RouteMeta,
       component: () => import(`../views/DashboardView.vue`),
     },
-    // {
-    //   path: '/settings',
-    //   name: RouteName.SETTINGS,
-    //   meta: { layout: 'MenuLayout' } as RouteMeta,
-    //   component: () => import(`../views/SettingsView.vue`),
-    // },
+    {
+      path: '/settings',
+      name: RouteName.SETTINGS,
+      meta: { layout: 'MenuLayout' } as RouteMeta,
+      component: () => import(`../views/SettingsView.vue`),
+    },
     {
       path: '/about',
       name: RouteName.ABOUT,

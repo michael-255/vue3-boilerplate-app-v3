@@ -60,12 +60,12 @@ const route = useRoute()
           <QItemSection>Dashboard</QItemSection>
         </QItem>
 
-        <!-- <QItem clickable v-ripple :to="{ name: RouteName.SETTINGS }">
+        <QItem clickable v-ripple :to="{ name: RouteName.SETTINGS }">
           <QItemSection avatar>
             <QIcon color="primary" :name="Icon.SETTINGS" />
           </QItemSection>
           <QItemSection>Settings</QItemSection>
-        </QItem> -->
+        </QItem>
 
         <QItem clickable v-ripple :to="{ name: RouteName.ABOUT }">
           <QItemSection avatar>
@@ -74,6 +74,17 @@ const route = useRoute()
           <QItemSection>About</QItemSection>
         </QItem>
       </QList>
+
+      <QItem>
+        <QItemSection class="text-h6">Data Tables</QItemSection>
+      </QItem>
+
+      <QItem clickable v-ripple>
+        <QItemSection avatar>
+          <QIcon color="primary" :name="Icon.CODE" />
+        </QItemSection>
+        <QItemSection>Placeholder</QItemSection>
+      </QItem>
     </QDrawer>
 
     <!-- Router View -->

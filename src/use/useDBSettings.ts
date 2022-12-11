@@ -17,6 +17,17 @@ export default function useDBSettings() {
   }
 
   /**
+   * Gets the setting value by key.
+   * @param key
+   * @returns SettingValue or undefined
+   */
+  async function getSettingValue(key: SettingKey): Promise<SettingValue | undefined> {
+    return (
+      await dexieWrapper.table(AppTable.SETTINGS).where(Field.KEY).equalsIgnoreCase(key).first()
+    )?.value
+  }
+
+  /**
    * Sets the Settings to their database or default values.
    */
   async function initializeSettings(): Promise<void> {
@@ -34,21 +45,13 @@ export default function useDBSettings() {
     const saveInfoMessages = findSettingValue(SettingKey.SAVE_INFO_MESSAGES) ?? false
     const favoriteParentIds = findSettingValue(SettingKey.FAVORITE_PARENT_IDS) ?? []
     const orphanedRecordIds = findSettingValue(SettingKey.ORPHANED_RECORD_IDS) ?? []
-    const activeSkippedRecordIds = findSettingValue(SettingKey.ACTIVE_SKIPPED_RECORD_IDS) ?? []
+    const activeRecordIds = findSettingValue(SettingKey.ACTIVE_RECORD_IDS) ?? []
     const parentsTableVisibleColumns = findSettingValue(
       SettingKey.PARENTS_TABLE_VISIBLE_COLUMNS
     ) ?? [Field.NAME]
     const recordsTableVisibleColumns = findSettingValue(
       SettingKey.RECORDS_TABLE_VISIBLE_COLUMNS
     ) ?? [Field.PARENT_ID]
-    const settingsTableVisibleColumns = findSettingValue(
-      SettingKey.SETTINGS_TABLE_VISIBLE_COLUMNS
-    ) ?? [Field.KEY, Field.VALUE]
-    const logsTableVisibleColumns = findSettingValue(SettingKey.LOGS_TABLE_VISIBLE_COLUMNS) ?? [
-      Field.SEVERITY,
-      Field.LABEL,
-      Field.LOCATION,
-    ]
 
     // Set all settings before continuing
     await Promise.all([
@@ -58,11 +61,9 @@ export default function useDBSettings() {
       setSetting(SettingKey.SAVE_INFO_MESSAGES, saveInfoMessages),
       setSetting(SettingKey.FAVORITE_PARENT_IDS, favoriteParentIds),
       setSetting(SettingKey.ORPHANED_RECORD_IDS, orphanedRecordIds),
-      setSetting(SettingKey.ACTIVE_SKIPPED_RECORD_IDS, activeSkippedRecordIds),
+      setSetting(SettingKey.ACTIVE_RECORD_IDS, activeRecordIds),
       setSetting(SettingKey.PARENTS_TABLE_VISIBLE_COLUMNS, parentsTableVisibleColumns),
       setSetting(SettingKey.RECORDS_TABLE_VISIBLE_COLUMNS, recordsTableVisibleColumns),
-      setSetting(SettingKey.SETTINGS_TABLE_VISIBLE_COLUMNS, settingsTableVisibleColumns),
-      setSetting(SettingKey.LOGS_TABLE_VISIBLE_COLUMNS, logsTableVisibleColumns),
     ])
 
     // Set store state values
@@ -72,11 +73,9 @@ export default function useDBSettings() {
     settingsStore[SettingKey.SAVE_INFO_MESSAGES] = saveInfoMessages
     settingsStore[SettingKey.FAVORITE_PARENT_IDS] = favoriteParentIds
     settingsStore[SettingKey.ORPHANED_RECORD_IDS] = orphanedRecordIds
-    settingsStore[SettingKey.ACTIVE_SKIPPED_RECORD_IDS] = activeSkippedRecordIds
+    settingsStore[SettingKey.ACTIVE_RECORD_IDS] = activeRecordIds
     settingsStore[SettingKey.PARENTS_TABLE_VISIBLE_COLUMNS] = parentsTableVisibleColumns
     settingsStore[SettingKey.RECORDS_TABLE_VISIBLE_COLUMNS] = recordsTableVisibleColumns
-    settingsStore[SettingKey.SETTINGS_TABLE_VISIBLE_COLUMNS] = settingsTableVisibleColumns
-    settingsStore[SettingKey.LOGS_TABLE_VISIBLE_COLUMNS] = logsTableVisibleColumns
   }
 
   /**
@@ -92,6 +91,7 @@ export default function useDBSettings() {
       .equalsIgnoreCase(key)
       .first()
 
+    // Add or Update depending on if the Setting already exists
     if (!existingSetting) {
       return await dexieWrapper.table(AppTable.SETTINGS).add({ key, value } as IDBSetting)
     } else {
@@ -101,6 +101,7 @@ export default function useDBSettings() {
 
   return {
     getSettingsTable,
+    getSettingValue,
     initializeSettings,
     setSetting,
   }

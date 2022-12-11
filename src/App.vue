@@ -1,24 +1,24 @@
 <script setup lang="ts">
-// import { useQuasar } from 'quasar'
+import { useQuasar } from 'quasar'
 import { RouterView, useRoute } from 'vue-router'
 import { onMounted, type Ref, ref, watch, markRaw } from 'vue'
 import useLogger from '@/use/useLogger'
 // import { DB } from './services/LocalDatabase'
-// import useSettingsStore from '@/stores/settings'
+import useDBSettings from '@/use/useDBSettings'
 import DefaultLayout from '@/layouts/DefaultLayout.vue'
+import { SettingKey } from '@/constants/model'
 // import OperationDialog from '@/components/shared/OperationDialog.vue'
 
 const { log } = useLogger()
 const route = useRoute()
-// const settingsStore = useSettingsStore()
-// const $q = useQuasar()
+const { getSettingValue, initializeSettings } = useDBSettings()
+const $q = useQuasar()
 const layout: Ref<any> = ref(null)
 
 onMounted(async () => {
-  // Should initialize app settings here.
-  // await settingsStore.initSettings(DB)
-  // $q.dark.set(settingsStore.darkMode)
-  log.critical('TEST APP', {})
+  // Initialize app settings here
+  await initializeSettings()
+  $q.dark.set(!!(await getSettingValue(SettingKey.DARK_MODE)))
 })
 
 /**
