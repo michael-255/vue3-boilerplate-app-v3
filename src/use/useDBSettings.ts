@@ -1,3 +1,4 @@
+import { useQuasar } from 'quasar'
 import type { IndexableType } from 'dexie'
 import { AppTable } from '@/constants/table'
 import { Field, SettingKey, type SettingValue } from '@/constants/model'
@@ -6,6 +7,7 @@ import type { IDBSetting } from '@/models/Setting'
 import useSettingsStore from '@/stores/settings'
 
 export default function useDBSettings() {
+  const $q = useQuasar()
   const settingsStore = useSettingsStore()
 
   /**
@@ -53,6 +55,9 @@ export default function useDBSettings() {
       SettingKey.RECORDS_TABLE_VISIBLE_COLUMNS
     ) ?? [Field.PARENT_ID]
 
+    // Set Quasar dark mode
+    $q.dark.set(!!darkMode) // Cast to boolean
+
     // Set all settings before continuing
     await Promise.all([
       setSetting(SettingKey.DARK_MODE, darkMode),
@@ -79,7 +84,7 @@ export default function useDBSettings() {
   }
 
   /**
-   * Sets the Setting with the provided key to the provided value in the database.
+   * Sets the Setting with the provided key to the provided value in the database. Also sets quasar dark mode.
    * @param key
    * @param value
    * @returns Added Setting key, or 1 on successful update
@@ -90,6 +95,11 @@ export default function useDBSettings() {
       .where(Field.KEY)
       .equalsIgnoreCase(key)
       .first()
+
+    // Set Quasar dark mode if the key is for dark mode
+    if (key === SettingKey.DARK_MODE) {
+      $q.dark.set(!!value) // Cast to boolean
+    }
 
     // Add or Update depending on if the Setting already exists
     if (!existingSetting) {

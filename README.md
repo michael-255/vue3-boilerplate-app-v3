@@ -7,8 +7,7 @@ projects. Read through this README to have a better understanding of how this pr
 
 Reference `ideas-scratch` for many of the changes you want to make.
 
-- [ ] Reimplement `Settings` page + menu drawer button
-- [ ] Move dark mode control from `$q` into `useDBSettings`
+- [ ] Reimplement `Settings` page and components
 
 Menu Drawer:
 
