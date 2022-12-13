@@ -70,17 +70,6 @@ export default function useDBSettings() {
       setSetting(SettingKey.PARENTS_TABLE_VISIBLE_COLUMNS, parentsTableVisibleColumns),
       setSetting(SettingKey.RECORDS_TABLE_VISIBLE_COLUMNS, recordsTableVisibleColumns),
     ])
-
-    // Set store state values
-    settingsStore[SettingKey.DARK_MODE] = darkMode
-    settingsStore[SettingKey.SHOW_CONSOLE_LOGS] = showConsoleLogs
-    settingsStore[SettingKey.SHOW_DEBUG_MESSAGES] = showDebugMessages
-    settingsStore[SettingKey.SAVE_INFO_MESSAGES] = saveInfoMessages
-    settingsStore[SettingKey.FAVORITE_PARENT_IDS] = favoriteParentIds
-    settingsStore[SettingKey.ORPHANED_RECORD_IDS] = orphanedRecordIds
-    settingsStore[SettingKey.ACTIVE_RECORD_IDS] = activeRecordIds
-    settingsStore[SettingKey.PARENTS_TABLE_VISIBLE_COLUMNS] = parentsTableVisibleColumns
-    settingsStore[SettingKey.RECORDS_TABLE_VISIBLE_COLUMNS] = recordsTableVisibleColumns
   }
 
   /**
@@ -100,6 +89,9 @@ export default function useDBSettings() {
     if (key === SettingKey.DARK_MODE) {
       $q.dark.set(!!value) // Cast to boolean
     }
+
+    // Update setting store value
+    settingsStore[key] = value
 
     // Add or Update depending on if the Setting already exists
     if (!existingSetting) {

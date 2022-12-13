@@ -8,25 +8,25 @@ const router = createRouter({
       path: '/',
       name: RouteName.DASHBOARD,
       meta: { layout: 'MenuLayout' } as RouteMeta,
-      component: () => import(`../views/DashboardView.vue`),
+      component: () => import('../views/DashboardView.vue'),
     },
     {
       path: '/settings',
       name: RouteName.SETTINGS,
       meta: { layout: 'MenuLayout' } as RouteMeta,
-      component: () => import(`../views/SettingsView.vue`),
+      component: () => import('../views/SettingsView.vue'),
     },
     {
       path: '/about',
       name: RouteName.ABOUT,
       meta: { layout: 'MenuLayout' } as RouteMeta,
-      component: () => import(`../views/AboutView.vue`),
+      component: () => import('../views/AboutView.vue'),
     },
     {
       path: '/:pathMatch(.*)*', // 404 Not Found
       name: RouteName.NOT_FOUND,
       meta: { layout: 'MenuLayout' },
-      component: () => import(`../views/NotFoundView.vue`),
+      component: () => import('../views/NotFoundView.vue'),
     },
   ],
 })

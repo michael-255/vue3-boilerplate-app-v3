@@ -8,6 +8,7 @@ projects. Read through this README to have a better understanding of how this pr
 Reference `ideas-scratch` for many of the changes you want to make.
 
 - [ ] Reimplement `Settings` page and components
+- [ ] Stop using `QCard` (wastes to much space)
 
 Menu Drawer:
 
