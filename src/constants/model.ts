@@ -8,7 +8,6 @@ export enum Field {
   // Log
   SEVERITY = 'severity',
   LABEL = 'label',
-  LOCATION = 'location', // file:function
   ERROR = 'error',
   // Core
   TYPE = 'type',
