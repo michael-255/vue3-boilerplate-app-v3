@@ -1,11 +1,10 @@
 <script setup lang="ts">
-import { QCardSection } from 'quasar'
-import SettingToggles from '@/components/settings/inputs/SettingToggles.vue'
+import OptionToggles from '@/components/settings/inputs/OptionToggles.vue'
 import TestLoggerButton from '@/components/settings/buttons/TestLoggerButton.vue'
 </script>
 
 <template>
-  <QCardSection>
+  <div>
     <div class="text-h6 q-mb-sm">Options</div>
 
     <div class="q-mb-sm">
@@ -20,8 +19,8 @@ import TestLoggerButton from '@/components/settings/buttons/TestLoggerButton.vue
       </span>
     </div>
 
-    <SettingToggles />
+    <OptionToggles />
 
     <TestLoggerButton class="q-mt-md" />
-  </QCardSection>
+  </div>
 </template>

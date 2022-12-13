@@ -1,12 +1,11 @@
 <script setup lang="ts">
-import { QCardSection } from 'quasar'
 // import DefaultMeasurementsButton from '@/components/settings/buttons/DefaultMeasurementsButton.vue'
 // import DefaultExercisesButton from '@/components/settings/buttons/DefaultExercisesButton.vue'
 // import DefaultWorkoutsButton from '@/components/settings/buttons/DefaultWorkoutsButton.vue'
 </script>
 
 <template>
-  <QCardSection>
+  <div>
     <div class="text-h6 q-mb-sm">Database Defaults</div>
 
     <div class="q-mb-md">
@@ -24,5 +23,5 @@ import { QCardSection } from 'quasar'
     <div class="q-mt-md">
       <!-- <DefaultWorkoutsButton /> -->
     </div>
-  </QCardSection>
+  </div>
 </template>

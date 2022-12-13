@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { QPage } from 'quasar'
-import { Icon } from '@/constants/app'
+import { AppColor, Icon } from '@/constants/app'
 import OptionsSection from '@/components/settings/OptionsSection.vue'
 import DefaultsSection from '@/components/settings/DefaultsSection.vue'
 // import ImportExportSection from '@/components/settings/ImportExportSection.vue'
@@ -8,29 +8,22 @@ import DefaultsSection from '@/components/settings/DefaultsSection.vue'
 </script>
 
 <template>
-  <QPage padding>
+  <QPage class="q-pa-md">
     <div class="row justify-center">
       <div class="col-12">
-        <QCard>
-          <QCardSection class="bg-primary text-white q-py-sm text-h5">
-            <QIcon class="q-pb-xs q-pr-sm" :name="Icon.SETTINGS" />
-            Settings
-          </QCardSection>
+        <!-- Settings Header -->
+        <div class="text-h5 q-mb-lg">
+          <QIcon class="q-pb-xs q-pr-xs" :color="AppColor.INFO" :name="Icon.SETTINGS" />
+          Settings
+        </div>
 
-          <OptionsSection />
+        <OptionsSection class="q-mb-lg" />
 
-          <QSeparator />
+        <DefaultsSection class="q-mb-lg" />
 
-          <DefaultsSection />
+        <!-- <ImportExportSection /> -->
 
-          <QSeparator />
-
-          <!-- <ImportExportSection /> -->
-
-          <QSeparator />
-
-          <!-- <DangerZoneSection /> -->
-        </QCard>
+        <!-- <DangerZoneSection /> -->
       </div>
     </div>
   </QPage>
