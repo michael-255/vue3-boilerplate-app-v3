@@ -18,7 +18,6 @@ import DefaultsSection from '@/components/settings/DefaultsSection.vue'
         </div>
 
         <OptionsSection class="q-mb-lg" />
-
         <DefaultsSection class="q-mb-lg" />
 
         <!-- <ImportExportSection /> -->

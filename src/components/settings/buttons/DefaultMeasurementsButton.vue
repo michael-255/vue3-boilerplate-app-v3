@@ -1,11 +1,9 @@
 <script setup lang="ts">
 import { QBtn } from 'quasar'
-import { useLogger } from '@/use/useLogger'
 import { useSimpleDialogs } from '@/use/useSimpleDialogs'
-import { Icon } from '@/constants/ui/icon-enums'
-import { NotifyColor } from '@/constants/ui/color-enums'
-import { DB } from '@/services/LocalDatabase'
-import { AppTable } from '@/constants/core/data-enums'
+import { AppTable } from '@/constants/table'
+import { AppColor, Icon } from '@/constants/app'
+import useLogger from '@/use/useLogger'
 import defaultMeasurements from '@/constants/data/default-measurements'
 
 const { log } = useLogger()
@@ -16,22 +14,26 @@ function onDefaults(): void {
     'Load Defaults',
     'Load default Measurements into the database?',
     Icon.INFO,
-    NotifyColor.INFO,
+    AppColor.INFO,
     async (): Promise<void> => {
       try {
         await loadDefaults()
       } catch (error) {
-        log.error('DefaultMeasurementsButton:onDefaults', error)
+        log.error(
+          'Error loading default Measurements',
+          error,
+          'DefaultMeasurementsButton:onDefaults'
+        )
       }
     }
   )
 }
 
 async function loadDefaults(): Promise<void> {
-  await DB.bulkAdd(AppTable.MEASUREMENTS, defaultMeasurements)
+  // await DB.bulkAdd(AppTable.MEASUREMENTS, defaultMeasurements)
 }
 </script>
 
 <template>
-  <QBtn label="Load Default Measurements" color="primary" @click="onDefaults()" />
+  <QBtn label="Load Default Measurements" class="q-mb-md" color="primary" @click="onDefaults()" />
 </template>
