@@ -24,14 +24,12 @@ export default function useDBLogs() {
   async function addLog(
     severity: Severity,
     label: string,
-    error?: Error | any,
-    location?: string
+    error?: Error | any
   ): Promise<IndexableType> {
     const log: IDBLog = {
       [Field.CREATED_TIMESTAMP]: new Date().getTime(),
       [Field.SEVERITY]: severity,
       [Field.LABEL]: label,
-      [Field.LOCATION]: location,
       [Field.ERROR]: error,
     }
 

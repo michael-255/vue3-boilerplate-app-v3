@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { QBtn } from 'quasar'
 import { useSimpleDialogs } from '@/use/useSimpleDialogs'
-import { AppTable } from '@/constants/table'
 import { AppColor, Icon } from '@/constants/app'
 import useLogger from '@/use/useLogger'
 import defaultExercises from '@/constants/data/default-exercises'
@@ -19,7 +18,7 @@ function onDefaults(): void {
       try {
         await loadDefaults()
       } catch (error) {
-        log.error('Error loading default Exercises', error, 'DefaultExercisesButton:onDefaults')
+        log.error('Error loading default Exercises', error)
       }
     }
   )
@@ -31,5 +30,7 @@ async function loadDefaults(): Promise<void> {
 </script>
 
 <template>
-  <QBtn label="Load Default Exercises" class="q-mb-md" color="primary" @click="onDefaults()" />
+  <div class="q-mb-md">
+    <QBtn label="Load Default Exercises" color="primary" @click="onDefaults()" />
+  </div>
 </template>
