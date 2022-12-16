@@ -38,5 +38,8 @@ function generateTestLogs(): void {
 </script>
 
 <template>
-  <QBtn label="Test Logger" :color="AppColor.INFO" @click="generateTestLogs()" />
+  <!-- Div ensures this item will stack on screen -->
+  <div>
+    <QBtn label="Test Logger" :color="AppColor.INFO" @click="generateTestLogs()" />
+  </div>
 </template>

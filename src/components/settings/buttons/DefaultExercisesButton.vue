@@ -30,7 +30,8 @@ async function loadDefaults(): Promise<void> {
 </script>
 
 <template>
-  <div class="q-mb-md">
+  <!-- Div ensures this item will stack on screen -->
+  <div>
     <QBtn label="Load Default Exercises" color="primary" @click="onDefaults()" />
   </div>
 </template>

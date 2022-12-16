@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { QBtn } from 'quasar'
-import { useLogger } from '@/use/useLogger'
-import { Icon } from '@/constants/ui/icon-enums'
-import { NotifyColor } from '@/constants/ui/color-enums'
+import { Icon, AppColor } from '@/constants/app'
 import { useSimpleDialogs } from '@/use/useSimpleDialogs'
-import { DB } from '@/services/LocalDatabase'
+import useLogger from '@/use/useLogger'
+import useDBClear from '@/use/useDBClear'
 
 const { log } = useLogger()
 const { confirmDialog, dismissDialog } = useSimpleDialogs()
+const { deleteDatabase } = useDBClear()
 
 /**
  * Deletes the underling Dexie Database. This removes all data, and will require a website reload.
@@ -17,10 +17,10 @@ async function onDeleteDB(): Promise<void> {
     'Delete Database',
     'Delete the underlining Dexie database? This only needs to be done to correct schema changes in newer versions of the app. All data will be lost.',
     Icon.DELETE,
-    NotifyColor.ERROR,
+    AppColor.ERROR,
     async (): Promise<void> => {
       try {
-        await DB.deleteDatabase()
+        await deleteDatabase()
         reloadMessageDialog()
       } catch (error) {
         log.error('DeleteDBBtn:onDeleteDB', error)
@@ -30,10 +30,18 @@ async function onDeleteDB(): Promise<void> {
 }
 
 function reloadMessageDialog(): void {
-  dismissDialog('Reload Reminder', 'Please reload the website now.', Icon.INFO, NotifyColor.INFO)
+  dismissDialog(
+    'Reload Reminder',
+    'You must reload the website now to resume proper functionality.',
+    Icon.WARN,
+    AppColor.WARN
+  )
 }
 </script>
 
 <template>
-  <QBtn label="Delete Database" :color="NotifyColor.ERROR" @click="onDeleteDB()" />
+  <!-- Div ensures this item will stack on screen -->
+  <div>
+    <QBtn label="Delete Database" :color="AppColor.ERROR" @click="onDeleteDB()" />
+  </div>
 </template>

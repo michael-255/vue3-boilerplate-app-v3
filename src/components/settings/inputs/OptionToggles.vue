@@ -47,16 +47,20 @@ const saveInfoMessages = computed({
 
 <template>
   <div>
-    <QToggle v-model="darkMode" label="Dark Mode" />
-  </div>
+    <div>
+      <QToggle v-model="darkMode" label="Dark Mode" />
+    </div>
 
-  <div>
-    <QToggle v-model="showConsoleLogs" label="Show Console Logs" />
-  </div>
-  <div>
-    <QToggle v-model="showDebugMessages" label="Show Debug Messages" />
-  </div>
-  <div>
-    <QToggle v-model="saveInfoMessages" label="Save Info Messages" />
+    <div>
+      <QToggle v-model="showConsoleLogs" label="Show Console Logs" />
+    </div>
+
+    <div>
+      <QToggle v-model="showDebugMessages" label="Show Debug Messages" />
+    </div>
+
+    <div>
+      <QToggle v-model="saveInfoMessages" label="Save Info Messages" />
+    </div>
   </div>
 </template>

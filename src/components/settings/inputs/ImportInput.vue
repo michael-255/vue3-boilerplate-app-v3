@@ -1,21 +1,19 @@
 <script setup lang="ts">
 import { QFile, QBtn } from 'quasar'
 import { type Ref, ref } from 'vue'
-import { useLogger } from '@/use/useLogger'
 import { useSimpleDialogs } from '@/use/useSimpleDialogs'
-import { AppTable } from '@/constants/core/data-enums'
-import { Icon } from '@/constants/ui/icon-enums'
-import { NotifyColor } from '@/constants/ui/color-enums'
-import { DB } from '@/services/LocalDatabase'
+import { AppTable } from '@/constants/table'
+import { Icon, AppColor } from '@/constants/app'
+import useLogger from '@/use/useLogger'
 
-const { log, consoleDebug } = useLogger()
+const { log } = useLogger()
 const { confirmDialog } = useSimpleDialogs()
 
 const file: Ref<any> = ref(null)
-const tenMegabytes = 10485760
+const fileSizeLimit = 100000000 // 100 mega bytes
 
 /**
- *
+ * Called when an import has been rejected by the input.
  * @param entries
  */
 function onRejectedImport(entries: any): void {
@@ -24,7 +22,7 @@ function onRejectedImport(entries: any): void {
   const type = entries[0]?.file?.type || undefined
   const name = entries[0]?.failedPropValidation || undefined
 
-  consoleDebug(entries)
+  log.debug('Import rejection entries', entries)
 
   log.warn(`Cannot import ${fileName}`, {
     name: name,
@@ -41,7 +39,7 @@ function onImport(): void {
     'Import',
     `Import file "${file.value.name}" and attempt to load data from it?`,
     Icon.INFO,
-    NotifyColor.INFO,
+    AppColor.INFO,
     async (): Promise<void> => {
       try {
         await confirmedFileImport()
@@ -65,16 +63,16 @@ async function confirmedFileImport(): Promise<void> {
     {} as any
   )
 
-  consoleDebug(appData)
+  log.debug('Imported file data', appData)
 
-  await Promise.all(
-    tableKeys.map((table: AppTable) => {
-      // Logs and Settings are NOT imported
-      if (table !== AppTable.LOGS && table !== AppTable.SETTINGS) {
-        DB.bulkAdd(table, appData[table])
-      }
-    })
-  )
+  // await Promise.all(
+  //   tableKeys.map((table: AppTable) => {
+  //     // Logs and Settings are NOT imported
+  //     if (table !== AppTable.LOGS && table !== AppTable.SETTINGS) {
+  //       DB.bulkAdd(table, appData[table])
+  //     }
+  //   })
+  // )
 }
 </script>
 
@@ -86,7 +84,7 @@ async function confirmedFileImport(): Promise<void> {
     counter
     bottom-slots
     label="File"
-    :max-file-size="tenMegabytes"
+    :max-file-size="fileSizeLimit"
     accept="application/json"
     @rejected="onRejectedImport"
   >
