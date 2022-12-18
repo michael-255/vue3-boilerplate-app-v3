@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { exportFile, QInput, QBtn } from 'quasar'
 import { type Ref, ref } from 'vue'
-import { useSimpleDialogs } from '@/use/useSimpleDialogs'
 import { AppTable } from '@/constants/table'
 import { Icon, AppColor } from '@/constants/app'
+import useSimpleDialogs from '@/use/useSimpleDialogs'
 import useLogger from '@/use/useLogger'
 import useDBShared from '@/use/useDBShared'
 
@@ -71,7 +71,7 @@ async function confirmedFileExport(filename: string): Promise<void> {
 </script>
 
 <template>
-  <QInput v-model="exportText" dense outlined placeholder="Optional Name">
+  <QInput v-model="exportText" dense outlined placeholder="Filename">
     <template v-slot:before>
       <QBtn label="Export" color="primary" class="q-mr-xs" @click="onExport()" />
     </template>

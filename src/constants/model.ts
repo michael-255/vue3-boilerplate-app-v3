@@ -28,6 +28,7 @@ export enum Field {
   // Exercise Parent
   EXERCISE_INPUTS = 'exerciseInputs',
   // Exercise Record
+  CONFIRMED = 'confirmed',
   WEIGHT_LBS = 'weightLbs',
   REPS = 'reps',
   DISTANCE_MILES = 'distanceMiles',
@@ -93,7 +94,6 @@ export enum MeasurementInputs {
 }
 
 export enum ExerciseInputs {
-  REMINDER = 'Reminder',
   CONFIRMATION = 'Confirmation',
   MULTIPLE_SETS = 'Multiple Sets',
   WEIGHT_LBS = 'Weight (Lbs)',

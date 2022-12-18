@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { QBtn } from 'quasar'
 import { Icon, AppColor } from '@/constants/app'
-import { useSimpleDialogs } from '@/use/useSimpleDialogs'
+import useSimpleDialogs from '@/use/useSimpleDialogs'
 import useLogger from '@/use/useLogger'
 import useDBShared from '@/use/useDBShared'
 

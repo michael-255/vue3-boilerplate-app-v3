@@ -1,7 +1,7 @@
 import { SettingKey, Severity } from '@/constants/model'
 import { Icon, AppColor } from '@/constants/app'
 import { logger } from '@/services/PrettyLogger'
-import { useNotifications } from '@/use/useNotifications'
+import useNotifications from '@/use/useNotifications'
 import useSettingsStore from '@/stores/settings'
 import useDBLogs from '@/use/useDBLogs'
 

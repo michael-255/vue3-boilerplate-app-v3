@@ -2,7 +2,7 @@
 import { QBtn } from 'quasar'
 import { AppTable } from '@/constants/table'
 import { Icon, AppColor } from '@/constants/app'
-import { useSimpleDialogs } from '@/use/useSimpleDialogs'
+import useSimpleDialogs from '@/use/useSimpleDialogs'
 import useLogger from '@/use/useLogger'
 import useDBSettings from '@/use/useDBSettings'
 import useDBShared from '@/use/useDBShared'

@@ -9,6 +9,8 @@ Menu Drawer:
 
 **_Reference all the many ideas in `ideas-scratch`_**
 
+- [ ] Data Converter in `Settings`
+
 - [ ] Implement Data Tables
 
   - [ ] Logs

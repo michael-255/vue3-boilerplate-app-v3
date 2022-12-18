@@ -4,7 +4,7 @@ import { AppColor, Icon } from '@/constants/app'
 /**
  * Simple customizable notifications.
  */
-export function useNotifications() {
+export default function useNotifications() {
   const $quasar = useQuasar()
 
   /**

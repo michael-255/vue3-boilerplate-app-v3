@@ -1,5 +1,5 @@
 /**
- * Typicial workouts people may want to use.
+ * Typicial workouts.
  * @see
  * Default export at bottom of file
  */

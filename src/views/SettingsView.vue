@@ -4,6 +4,7 @@ import { Icon } from '@/constants/app'
 import OptionsCard from '@/components/settings/OptionsCard.vue'
 import DefaultsCard from '@/components/settings/DefaultsCard.vue'
 import ImportExportCard from '@/components/settings/ImportExportCard.vue'
+import ConverterCard from '@/components/settings/ConverterCard.vue'
 import DangerZoneCard from '@/components/settings/DangerZoneCard.vue'
 </script>
 
@@ -20,6 +21,7 @@ import DangerZoneCard from '@/components/settings/DangerZoneCard.vue'
     <OptionsCard class="q-mb-sm" />
     <DefaultsCard class="q-mb-sm" />
     <ImportExportCard class="q-mb-sm" />
+    <ConverterCard class="q-mb-sm" />
     <DangerZoneCard />
   </QPage>
 </template>

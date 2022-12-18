@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { QFile, QBtn } from 'quasar'
 import { type Ref, ref } from 'vue'
-import { useSimpleDialogs } from '@/use/useSimpleDialogs'
 import { AppTable } from '@/constants/table'
 import { Icon, AppColor } from '@/constants/app'
+import useSimpleDialogs from '@/use/useSimpleDialogs'
 import useLogger from '@/use/useLogger'
 import useDBShared from '@/use/useDBShared'
 
