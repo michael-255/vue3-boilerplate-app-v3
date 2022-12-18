@@ -1,3 +1,4 @@
+import { Field } from '@/constants/model'
 import { RouteName, type RouteMeta } from '@/constants/router'
 import { createRouter, createWebHistory } from 'vue-router'
 
@@ -23,7 +24,7 @@ const router = createRouter({
       component: () => import('../views/AboutView.vue'),
     },
     {
-      path: '/take-measurements/:category',
+      path: `/take-measurements/:${Field.MEASUREMENT_CATEGORY}`,
       name: RouteName.TAKE_MEASUREMENTS,
       meta: { layout: 'MenuLayout' } as RouteMeta,
       component: () => import('../views/TakeMeasurementsView.vue'),

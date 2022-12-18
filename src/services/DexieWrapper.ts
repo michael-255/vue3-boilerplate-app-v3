@@ -23,7 +23,7 @@ export class DexieWrapper extends Dexie {
     super(name)
 
     this.version(1).stores({
-      [AppTable.MEASUREMENTS]: `&${Field.ID}, ${Field.PARENT_STATUS}`,
+      [AppTable.MEASUREMENTS]: `&${Field.ID}, ${Field.PARENT_STATUS}, ${Field.MEASUREMENT_CATEGORY}`,
       [AppTable.MEASUREMENT_RECORDS]: `&${Field.ID}, ${Field.RECORD_STATUS}, ${Field.PARENT_ID}`,
       [AppTable.EXERCISES]: `&${Field.ID}, ${Field.PARENT_STATUS}`,
       [AppTable.EXERCISE_RECORDS]: `&${Field.ID}, ${Field.RECORD_STATUS}, ${Field.PARENT_ID}`,

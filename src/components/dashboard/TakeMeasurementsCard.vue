@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import { QCard, QCardSection } from 'quasar'
 import { RouteName } from '@/constants/router'
-import { MeasurementCategory } from '@/constants/model'
+import { Field, MeasurementCategory } from '@/constants/model'
+
+const categories = Object.values(MeasurementCategory)
 </script>
 
 <template>
@@ -10,51 +12,19 @@ import { MeasurementCategory } from '@/constants/model'
       <div class="text-h6 q-mb-md">Take Measurements</div>
 
       <div class="row q-col-gutter-md justify-start">
-        <div class="col-sm-3 col-xs-6">
+        <div
+          v-for="(category, index) in categories"
+          :key="index"
+          class="col-md-3 col-sm-4 col-xs-6"
+        >
           <QBtn
             class="full-width"
             color="positive"
             :to="{
               name: RouteName.TAKE_MEASUREMENTS,
-              params: { category: MeasurementCategory.BMI },
+              params: { [Field.MEASUREMENT_CATEGORY]: category },
             }"
-            :label="MeasurementCategory.BMI"
-          />
-        </div>
-
-        <div class="col-sm-3 col-xs-6">
-          <QBtn
-            class="full-width"
-            color="positive"
-            :to="{
-              name: RouteName.TAKE_MEASUREMENTS,
-              params: { category: MeasurementCategory.BODY },
-            }"
-            :label="MeasurementCategory.BODY"
-          />
-        </div>
-
-        <div class="col-sm-3 col-xs-6">
-          <QBtn
-            class="full-width"
-            color="positive"
-            :to="{
-              name: RouteName.TAKE_MEASUREMENTS,
-              params: { category: MeasurementCategory.HEART },
-            }"
-            :label="MeasurementCategory.HEART"
-          />
-        </div>
-
-        <div class="col-sm-3 col-xs-6">
-          <QBtn
-            class="full-width"
-            color="positive"
-            :to="{
-              name: RouteName.TAKE_MEASUREMENTS,
-              params: { category: MeasurementCategory.PAIN },
-            }"
-            :label="MeasurementCategory.PAIN"
+            :label="category"
           />
         </div>
       </div>
