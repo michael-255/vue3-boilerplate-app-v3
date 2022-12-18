@@ -31,6 +31,7 @@ function onExport(): void {
     async (): Promise<void> => {
       try {
         await confirmedFileExport(filename)
+        exportText.value = '' // Clear input
       } catch (error) {
         log.error('Export failed', error)
       }
@@ -59,8 +60,6 @@ async function confirmedFileExport(filename: string): Promise<void> {
     encoding: 'UTF-8',
     mimeType: 'application/json',
   })
-
-  exportText.value = '' // Clear input
 
   if (fileStatus === true) {
     log.info('File downloaded succesfully')

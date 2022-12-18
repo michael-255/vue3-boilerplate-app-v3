@@ -9,7 +9,14 @@ Menu Drawer:
 
 **_Reference all the many ideas in `ideas-scratch`_**
 
-- [ ] Data Converter in `Settings`
+- [x] Data Converter in `Settings`
+
+- [ ] Build `Take Measurements` pages
+
+  - [ ] `BMI`
+  - [ ] `BODY`
+  - [ ] `HEART`
+  - [ ] `PAIN` (need to create parents for this)
 
 - [ ] Implement Data Tables
 

@@ -29,7 +29,7 @@ function onDefaults(): void {
 
 async function loadDefaults(): Promise<void> {
   consoleDebug('defaultExercises =', defaultExercises)
-  await importItems(AppTable.PARENTS, defaultExercises)
+  await importItems(AppTable.EXERCISES, defaultExercises)
   log.info('Exercise defaults added')
 }
 </script>

@@ -35,6 +35,7 @@ function onImport(): void {
     async (): Promise<void> => {
       try {
         await confirmedFileImport()
+        file.value = null // Clear input
       } catch (error) {
         log.error('Import failed', error)
       }
@@ -58,8 +59,6 @@ async function confirmedFileImport(): Promise<void> {
   )
 
   consoleDebug('importData =', importData)
-
-  file.value = null // Clear input
 
   await Promise.all(
     tableKeys.map((table: AppTable) => {

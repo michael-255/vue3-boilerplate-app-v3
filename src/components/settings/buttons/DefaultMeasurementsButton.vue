@@ -29,7 +29,7 @@ function onDefaults(): void {
 
 async function loadDefaults(): Promise<void> {
   consoleDebug('defaultMeasurements =', defaultMeasurements)
-  await importItems(AppTable.PARENTS, defaultMeasurements)
+  await importItems(AppTable.MEASUREMENTS, defaultMeasurements)
   log.info('Measurement defaults added')
 }
 </script>

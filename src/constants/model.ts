@@ -10,7 +10,6 @@ export enum Field {
   LABEL = 'label',
   DETAILS = 'details',
   // Core
-  TYPE = 'type',
   ID = 'id',
   CREATED_TIMESTAMP = 'createdTimestamp',
   // Parent
@@ -22,9 +21,10 @@ export enum Field {
   PARENT_ID = 'parentId',
   NOTE = 'note',
   // Measurement Parent
+  MEASUREMENT_CATEGORY = 'measurementCategory',
   MEASUREMENT_INPUTS = 'measurementInputs',
   // Measurement Record
-  MEASUREMENT_VALUES = 'measurementValues', // array
+  MEASUREMENT_VALUES = 'measurementValues',
   // Exercise Parent
   EXERCISE_INPUTS = 'exerciseInputs',
   // Exercise Record
@@ -39,13 +39,6 @@ export enum Field {
   // Workout Record
   FINISHED_TIMESTAMP = 'finishedTimestamp',
   EXERCISE_RECORD_IDS = 'exerciseRecordIds',
-}
-
-export enum CoreType {
-  MEASUREMENT_PARENT = 'Measurement-Parent',
-  MEASUREMENT_RECORD = 'Measurement-Record',
-  EXERCISE_PARENT = 'Exercise-Parent',
-  EXERCISE_RECORD = 'Exercise-Record',
 }
 
 export enum ParentStatus {
@@ -81,6 +74,15 @@ export enum SettingKey {
 }
 
 export type SettingValue = boolean | string[] | null
+
+export enum MeasurementCategory {
+  MISC = 'Miscellaneous',
+  BMI = 'BMI',
+  BODY = 'Body',
+  HEART = 'Heart',
+  PAIN = 'Pain',
+  ATHLETICS = 'Athletics',
+}
 
 export enum MeasurementInputs {
   LBS = 'Lbs',

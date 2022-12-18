@@ -1,13 +1,21 @@
 import type { IndexableType } from 'dexie'
 import type { IDBLog } from '@/models/Log'
-import type { IDBParent } from '@/models/Parent'
-import type { IDBRecord } from '@/models/Record'
 import type { IDBSetting } from '@/models/Setting'
 import type { AppTable } from '@/constants/table'
 import type { SettingKey } from '@/constants/model'
 import { dexieWrapper } from '@/services/DexieWrapper'
+import type { IDBMeasurement } from '@/models/Measurement'
+import type { IDBMeasurementRecord } from '@/models/MeasurementRecord'
+import type { IDBExercise } from '@/models/Exercise'
+import type { IDBExerciseRecord } from '@/models/ExerciseRecord'
 
-type AnyModel = IDBParent | IDBRecord | IDBSetting | IDBLog
+type AnyModel =
+  | IDBMeasurement
+  | IDBMeasurementRecord
+  | IDBExercise
+  | IDBExerciseRecord
+  | IDBSetting
+  | IDBLog
 
 export default function useDBShared() {
   /**

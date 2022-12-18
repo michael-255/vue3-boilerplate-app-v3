@@ -23,6 +23,12 @@ const router = createRouter({
       component: () => import('../views/AboutView.vue'),
     },
     {
+      path: '/take-measurements/:category',
+      name: RouteName.TAKE_MEASUREMENTS,
+      meta: { layout: 'MenuLayout' } as RouteMeta,
+      component: () => import('../views/TakeMeasurementsView.vue'),
+    },
+    {
       path: '/:pathMatch(.*)*', // 404 Not Found
       name: RouteName.NOT_FOUND,
       meta: { layout: 'MenuLayout' },

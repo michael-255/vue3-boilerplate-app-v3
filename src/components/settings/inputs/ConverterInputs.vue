@@ -34,6 +34,7 @@ function onConvertFitnessTrackerv16File(): void {
     async (): Promise<void> => {
       try {
         await convertFitnessTrackerv16File(file)
+        file.value = null // Clear input
       } catch (error) {
         log.error('Conversion failed', error)
       }

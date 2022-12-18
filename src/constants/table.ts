@@ -4,11 +4,13 @@ import type { Field } from '@/constants/model'
  * Dexie table names used by the DexieWrapper service.
  */
 export enum AppTable {
-  PARENTS = 'Parents-Table',
-  RECORDS = 'Records-Table',
+  MEASUREMENTS = 'Measurements-Table',
+  MEASUREMENT_RECORDS = 'Measurement-Records-Table',
+  EXERCISES = 'Exercises-Table',
+  EXERCISE_RECORDS = 'Exercise-Records-Table',
   SETTINGS = 'Settings-Table',
   LOGS = 'Logs-Table',
-  // IMAGES = 'Images-Table', // TODO - Work on this at a later date
+  // IMAGES = 'Images-Table', // TODO - May implement this later
 }
 
 /**
