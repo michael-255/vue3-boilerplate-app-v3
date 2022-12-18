@@ -81,9 +81,37 @@ const route = useRoute()
 
       <QItem clickable v-ripple>
         <QItemSection avatar>
-          <QIcon color="primary" :name="Icon.CODE" />
+          <QIcon color="primary" :name="Icon.MEASUREMENTS" />
         </QItemSection>
-        <QItemSection>Placeholder</QItemSection>
+        <QItemSection>Measurements</QItemSection>
+      </QItem>
+
+      <QItem clickable v-ripple>
+        <QItemSection avatar>
+          <QIcon color="primary" :name="Icon.RECORDS" />
+        </QItemSection>
+        <QItemSection>Measurement Records</QItemSection>
+      </QItem>
+
+      <QItem clickable v-ripple>
+        <QItemSection avatar>
+          <QIcon color="primary" :name="Icon.EXERCISES" />
+        </QItemSection>
+        <QItemSection>Exercises</QItemSection>
+      </QItem>
+
+      <QItem clickable v-ripple>
+        <QItemSection avatar>
+          <QIcon color="primary" :name="Icon.RECORDS" />
+        </QItemSection>
+        <QItemSection>Exercise Records</QItemSection>
+      </QItem>
+
+      <QItem clickable v-ripple>
+        <QItemSection avatar>
+          <QIcon color="primary" :name="Icon.LOGS" />
+        </QItemSection>
+        <QItemSection>Logs</QItemSection>
       </QItem>
     </QDrawer>
 

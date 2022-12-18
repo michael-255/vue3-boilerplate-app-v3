@@ -96,9 +96,9 @@ export enum ExerciseInputs {
   REMINDER = 'Reminder',
   CONFIRMATION = 'Confirmation',
   MULTIPLE_SETS = 'Multiple Sets',
-  WEIGHT_LBS = 'Weight (lbs)',
+  WEIGHT_LBS = 'Weight (Lbs)',
   REPS = 'Reps',
-  DISTANCE_MILES = 'Distance (miles)',
-  DURATION_MINUTES = 'Duration (minutes)',
+  DISTANCE_MILES = 'Distance (Miles)',
+  DURATION_MINUTES = 'Duration (Minutes)',
   RESISTANCE = 'Resistence',
 }

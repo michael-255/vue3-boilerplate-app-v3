@@ -1,12 +1,15 @@
 <script setup lang="ts">
 import { QBtn } from 'quasar'
 import { useSimpleDialogs } from '@/use/useSimpleDialogs'
+import { AppTable } from '@/constants/table'
 import { AppColor, Icon } from '@/constants/app'
 import useLogger from '@/use/useLogger'
-// import defaultExercises from '@/constants/data/default-exercises'
+import useDBShared from '@/use/useDBShared'
+import defaultExercises from '@/constants/data/default-exercises'
 
-const { log } = useLogger()
+const { log, consoleDebug } = useLogger()
 const { confirmDialog } = useSimpleDialogs()
+const { importItems } = useDBShared()
 
 function onDefaults(): void {
   confirmDialog(
@@ -25,7 +28,9 @@ function onDefaults(): void {
 }
 
 async function loadDefaults(): Promise<void> {
-  // await DB.bulkAdd(AppTable.EXERCISES, defaultExercises)
+  consoleDebug('defaultExercises =', defaultExercises)
+  await importItems(AppTable.PARENTS, defaultExercises)
+  log.info('Exercise defaults added')
 }
 </script>
 

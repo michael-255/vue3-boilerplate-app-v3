@@ -7,7 +7,7 @@ import useLogger from '@/use/useLogger'
 import useDBShared from '@/use/useDBShared'
 import defaultMeasurements from '@/constants/data/default-measurements'
 
-const { log } = useLogger()
+const { log, consoleDebug } = useLogger()
 const { confirmDialog } = useSimpleDialogs()
 const { importItems } = useDBShared()
 
@@ -28,6 +28,7 @@ function onDefaults(): void {
 }
 
 async function loadDefaults(): Promise<void> {
+  consoleDebug('defaultMeasurements =', defaultMeasurements)
   await importItems(AppTable.PARENTS, defaultMeasurements)
   log.info('Measurement defaults added')
 }

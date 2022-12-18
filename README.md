@@ -5,34 +5,26 @@ projects. Read through this README to have a better understanding of how this pr
 
 ## TODO
 
-Reference `ideas-scratch` for many of the changes you want to make.
-
-- [ ] Reimplement `Settings` page and components
-
-  - [ ] Converter for `v16` data built into `Settings`
-  - [ ] Default `Exercises`
-
-- [ ] Stop using `QCard` (wastes to much space)
-
 Menu Drawer:
 
-- [ ] Menu
+**_Reference all the many ideas in `ideas-scratch`_**
 
-  - [ ] Dashboard or Home
-  - [ ] Settings
-  - [ ] About
+- [ ] Implement Data Tables
 
-- [ ] Data Tables
-
+  - [ ] Logs
   - [ ] Measurements
   - [ ] Exercises
-  - [ ] Logs
-  - [ ] Settings
+  - [ ] Measurement Records
+  - [ ] Exercise Records
 
 Select Box options for data tables:
 
 - [ ] `type` = Measurements or Records
 - [ ] `status` = All options
+
+Take-Measurement Page:
+
+- [ ] Collect inputs into groups (`BMI`, `Heart`, etc.)
 
 Endgame:
 
