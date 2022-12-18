@@ -3,7 +3,7 @@ import { QBtn } from 'quasar'
 import { useSimpleDialogs } from '@/use/useSimpleDialogs'
 import { AppColor, Icon } from '@/constants/app'
 import useLogger from '@/use/useLogger'
-import defaultExercises from '@/constants/data/default-exercises'
+// import defaultExercises from '@/constants/data/default-exercises'
 
 const { log } = useLogger()
 const { confirmDialog } = useSimpleDialogs()

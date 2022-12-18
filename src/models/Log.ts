@@ -6,5 +6,5 @@ export interface IDBLog {
   [Field.CREATED_TIMESTAMP]: number
   [Field.SEVERITY]: Severity
   [Field.LABEL]: string
-  [Field.ERROR]?: AppObject
+  [Field.DETAILS]?: AppObject
 }

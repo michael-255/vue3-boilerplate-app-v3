@@ -5,12 +5,12 @@ import { Icon, AppColor } from '@/constants/app'
 import { useSimpleDialogs } from '@/use/useSimpleDialogs'
 import useLogger from '@/use/useLogger'
 import useDBSettings from '@/use/useDBSettings'
-import useDBClear from '@/use/useDBClear'
+import useDBShared from '@/use/useDBShared'
 
 const { log } = useLogger()
 const { confirmDialog } = useSimpleDialogs()
 const { initializeSettings } = useDBSettings()
-const { clearTable } = useDBClear()
+const { clearTable } = useDBShared()
 
 async function onClearAll(): Promise<void> {
   confirmDialog(
@@ -23,7 +23,7 @@ async function onClearAll(): Promise<void> {
         await Promise.all(Object.values(AppTable).map((table) => clearTable(table as AppTable)))
         await initializeSettings()
       } catch (error) {
-        log.error('ClearAllBtn:onClearAll', error)
+        log.error('Error clearing all tables', error)
       }
     }
   )

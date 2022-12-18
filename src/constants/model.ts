@@ -8,16 +8,17 @@ export enum Field {
   // Log
   SEVERITY = 'severity',
   LABEL = 'label',
-  ERROR = 'error',
+  DETAILS = 'details',
   // Core
   TYPE = 'type',
   ID = 'id',
   CREATED_TIMESTAMP = 'createdTimestamp',
-  STATUS = 'status',
   // Parent
+  PARENT_STATUS = 'parentStatus',
   NAME = 'name',
   DESCRIPTION = 'description',
   // Record
+  RECORD_STATUS = 'recordStatus',
   PARENT_ID = 'parentId',
   NOTE = 'note',
   // Measurement Parent
@@ -46,13 +47,16 @@ export enum CoreType {
   EXERCISE_RECORD = 'Exercise-Record',
 }
 
-export enum CoreStatus {
-  NONE = 'None',
-  SKIPPED = 'Skipped', // Record
-  COMPLETED = 'Completed', // Record
-  ARCHIVED = 'Archived', // Parent
+export enum ParentStatus {
   ENABLED = 'Enabled',
   DISABLED = 'Disabled',
+  ARCHIVED = 'Archived',
+}
+
+export enum RecordStatus {
+  COMPLETED = 'Completed',
+  SKIPPED = 'Skipped',
+  ACTIVE = 'Active',
 }
 
 export enum Severity {

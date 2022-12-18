@@ -29,9 +29,9 @@ export default function useLogger() {
      * - Never saved in DB
      * - Suppressable notifications
      */
-    debug: (label: string, error?: Error | any) => {
+    debug: (label: string, details?: any) => {
       if (settingsStore[SettingKey.SHOW_CONSOLE_LOGS]) {
-        logger.debug(`[${Severity.DEBUG}]`, label, error)
+        logger.debug(`[${Severity.DEBUG}]`, label, details)
       }
 
       if (settingsStore[SettingKey.SHOW_DEBUG_MESSAGES]) {
@@ -44,15 +44,15 @@ export default function useLogger() {
      * - Can turn off DB saving
      * - Cannot suppress notifications
      */
-    info: (label: string, error?: Error | any) => {
+    info: (label: string, details?: any) => {
       const severity = Severity.INFO
 
       if (settingsStore[SettingKey.SHOW_CONSOLE_LOGS]) {
-        logger.info(`[${severity}]`, label, error)
+        logger.info(`[${severity}]`, label, details)
       }
 
       if (settingsStore[SettingKey.SAVE_INFO_MESSAGES]) {
-        addLog(severity, label, error)
+        addLog(severity, label, details)
       }
 
       notify(label, Icon.INFO, AppColor.INFO)
@@ -63,14 +63,14 @@ export default function useLogger() {
      * - Cannot turn off DB saving
      * - Cannot suppress notifications
      */
-    warn: (label: string, error?: Error | any) => {
+    warn: (label: string, details?: any) => {
       const severity = Severity.WARN
 
       if (settingsStore[SettingKey.SHOW_CONSOLE_LOGS]) {
-        logger.warn(`[${severity}]`, label, error)
+        logger.warn(`[${severity}]`, label, details)
       }
 
-      addLog(severity, label, error)
+      addLog(severity, label, details)
 
       notify(label, Icon.WARN, AppColor.WARN)
     },
@@ -80,14 +80,14 @@ export default function useLogger() {
      * - Cannot turn off DB saving
      * - Cannot suppress notifications
      */
-    error: (label: string, error?: Error | any) => {
+    error: (label: string, details?: any) => {
       const severity = Severity.ERROR
 
       if (settingsStore[SettingKey.SHOW_CONSOLE_LOGS]) {
-        logger.error(`[${severity}]`, label, error)
+        logger.error(`[${severity}]`, label, details)
       }
 
-      addLog(severity, label, error)
+      addLog(severity, label, details)
 
       notify(label, Icon.ERROR, AppColor.ERROR)
     },
@@ -97,14 +97,14 @@ export default function useLogger() {
      * - Cannot turn off DB saving
      * - Cannot suppress notifications
      */
-    critical: (label: string, error?: Error | any) => {
+    critical: (label: string, details?: any) => {
       const severity = Severity.CRITICAL
 
       if (settingsStore[SettingKey.SHOW_CONSOLE_LOGS]) {
-        logger.critical(`[${severity}]`, label, error)
+        logger.critical(`[${severity}]`, label, details)
       }
 
-      addLog(severity, label, error)
+      addLog(severity, label, details)
 
       notify(label, Icon.CRITICAL, AppColor.CRITICAL)
     },
@@ -119,8 +119,20 @@ export default function useLogger() {
     logger.log(message, ...args)
   }
 
+  /**
+   * Simple console debug that only displays if consoling logging is on.
+   * @param message
+   * @param args
+   */
+  function consoleDebug(message: any, ...args: any): void {
+    if (settingsStore[SettingKey.SHOW_CONSOLE_LOGS]) {
+      logger.debug(message, ...args)
+    }
+  }
+
   return {
     log,
     consoleLog,
+    consoleDebug,
   }
 }

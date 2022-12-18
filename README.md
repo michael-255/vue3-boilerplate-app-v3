@@ -9,11 +9,7 @@ Reference `ideas-scratch` for many of the changes you want to make.
 
 - [ ] Reimplement `Settings` page and components
 
-  - [ ] `ImportInput`
-  - [ ] `ExportInput`
-  - [ ] Default `Measurements`
   - [ ] Default `Exercises`
-  - [ ] Clean up on `Settings` LOG messages (make them nice and readable!)
 
 - [ ] Stop using `QCard` (wastes to much space)
 

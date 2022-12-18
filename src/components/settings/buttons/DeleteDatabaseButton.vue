@@ -3,11 +3,11 @@ import { QBtn } from 'quasar'
 import { Icon, AppColor } from '@/constants/app'
 import { useSimpleDialogs } from '@/use/useSimpleDialogs'
 import useLogger from '@/use/useLogger'
-import useDBClear from '@/use/useDBClear'
+import useDBShared from '@/use/useDBShared'
 
 const { log } = useLogger()
 const { confirmDialog, dismissDialog } = useSimpleDialogs()
-const { deleteDatabase } = useDBClear()
+const { deleteDatabase } = useDBShared()
 
 /**
  * Deletes the underling Dexie Database. This removes all data, and will require a website reload.
@@ -23,7 +23,7 @@ async function onDeleteDB(): Promise<void> {
         await deleteDatabase()
         reloadMessageDialog()
       } catch (error) {
-        log.error('DeleteDBBtn:onDeleteDB', error)
+        log.error('Database deletion failed', error)
       }
     }
   )

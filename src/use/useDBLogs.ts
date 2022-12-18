@@ -6,14 +6,6 @@ import type { IDBLog } from '@/models/Log'
 
 export default function useDBLogs() {
   /**
-   * Gets all data from the Logs table.
-   * @returns IDBLog[]
-   */
-  async function getLogsTable(): Promise<IDBLog[]> {
-    return await dexieWrapper.table(AppTable.LOGS).toArray()
-  }
-
-  /**
    * Adds a Log to the database.
    * @param severity
    * @param label
@@ -21,23 +13,16 @@ export default function useDBLogs() {
    * @param location
    * @returns Id of new Log
    */
-  async function addLog(
-    severity: Severity,
-    label: string,
-    error?: Error | any
-  ): Promise<IndexableType> {
+  async function addLog(severity: Severity, label: string, details?: any): Promise<IndexableType> {
     const log: IDBLog = {
       [Field.CREATED_TIMESTAMP]: new Date().getTime(),
       [Field.SEVERITY]: severity,
       [Field.LABEL]: label,
-      [Field.ERROR]: error,
+      [Field.DETAILS]: details,
     }
 
     return await dexieWrapper.table(AppTable.LOGS).add(log)
   }
 
-  return {
-    getLogsTable,
-    addLog,
-  }
+  return { addLog }
 }

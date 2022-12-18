@@ -5,9 +5,12 @@ import { useSimpleDialogs } from '@/use/useSimpleDialogs'
 import { AppTable } from '@/constants/table'
 import { Icon, AppColor } from '@/constants/app'
 import useLogger from '@/use/useLogger'
+import useDBShared from '@/use/useDBShared'
 
-const { log } = useLogger()
+const { log, consoleDebug } = useLogger()
 const { confirmDialog } = useSimpleDialogs()
+const { getTable } = useDBShared()
+
 const exportText: Ref<string> = ref('')
 
 /**
@@ -29,7 +32,7 @@ function onExport(): void {
       try {
         await confirmedFileExport(filename)
       } catch (error) {
-        log.error('onExport', error)
+        log.error('Export failed', error)
       }
     }
   )
@@ -40,21 +43,27 @@ function onExport(): void {
  * @param filename
  */
 async function confirmedFileExport(filename: string): Promise<void> {
-  // Using the table keys as a guide for what data can be exported as JSON
+  // Use table keys as guide for what data can be exported
   const tableKeys = Object.values(AppTable)
-  const appData: any[] = [] // TODO
-  // const tableData = await Promise.all(tableKeys.map((table) => DB.getAll(table as AppTable)))
-  // const appData = tableKeys.reduce((o, key, i) => ({ ...o, [key]: tableData[i] }), {})
 
-  log.debug('Exported file data', appData)
+  // Get all data from each table
+  const tableData = await Promise.all(tableKeys.map((table) => getTable(table as AppTable)))
 
-  const fileStatus = exportFile(filename, JSON.stringify(appData), {
+  // Converting the data array into a object with table names as keys
+  const exportData = tableKeys.reduce((o, key, i) => ({ ...o, [key]: tableData[i] }), {})
+
+  consoleDebug('exportData =', exportData)
+
+  // Attempt to download the export data
+  const fileStatus = exportFile(filename, JSON.stringify(exportData), {
     encoding: 'UTF-8',
     mimeType: 'application/json',
   })
 
+  exportText.value = '' // Clear input
+
   if (fileStatus === true) {
-    log.debug('File downloaded succesfully')
+    log.info('File downloaded succesfully')
   } else {
     throw new Error('Browser denied file download')
   }

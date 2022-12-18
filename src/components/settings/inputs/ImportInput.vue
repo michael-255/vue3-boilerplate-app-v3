@@ -5,9 +5,11 @@ import { useSimpleDialogs } from '@/use/useSimpleDialogs'
 import { AppTable } from '@/constants/table'
 import { Icon, AppColor } from '@/constants/app'
 import useLogger from '@/use/useLogger'
+import useDBShared from '@/use/useDBShared'
 
-const { log } = useLogger()
+const { log, consoleDebug } = useLogger()
 const { confirmDialog } = useSimpleDialogs()
+const { importItems } = useDBShared()
 
 const file: Ref<any> = ref(null)
 const fileSizeLimit = 100000000 // 100 mega bytes
@@ -18,17 +20,7 @@ const fileSizeLimit = 100000000 // 100 mega bytes
  */
 function onRejectedImport(entries: any): void {
   const fileName = entries[0]?.file?.name || undefined
-  const size = entries[0]?.file?.size || undefined
-  const type = entries[0]?.file?.type || undefined
-  const name = entries[0]?.failedPropValidation || undefined
-
-  log.debug('Import rejection entries', entries)
-
-  log.warn(`Cannot import ${fileName}`, {
-    name: name,
-    message: `NAME: ${fileName}, SIZE: ${size}, TYPE: ${type}`,
-    stack: 'onRejectedImport',
-  })
+  log.warn(`Cannot import "${fileName}"`, entries)
 }
 
 /**
@@ -44,7 +36,7 @@ function onImport(): void {
       try {
         await confirmedFileImport()
       } catch (error) {
-        log.error('onImport', error)
+        log.error('Import failed', error)
       }
     }
   )
@@ -54,25 +46,31 @@ function onImport(): void {
  * Imports data properties it can parse that are defined below.
  */
 async function confirmedFileImport(): Promise<void> {
-  const fileData = await file.value.text()
-  const parsedFileData = JSON.parse(fileData)
-  // Using the table keys as a guide for what data can be imported from the JSON
+  const parsedFileData = JSON.parse(await file.value.text())
+
+  // Use table keys as guide for what data can be imported
   const tableKeys = Object.values(AppTable)
-  const appData = tableKeys.reduce(
+
+  // Only retrieve data stored under a matching table key
+  const importData = tableKeys.reduce(
     (o, key: AppTable) => ({ ...o, [key]: parsedFileData[key] || [] }),
     {} as any
   )
 
-  log.debug('Imported file data', appData)
+  consoleDebug('importData =', importData)
 
-  // await Promise.all(
-  //   tableKeys.map((table: AppTable) => {
-  //     // Logs and Settings are NOT imported
-  //     if (table !== AppTable.LOGS && table !== AppTable.SETTINGS) {
-  //       DB.bulkAdd(table, appData[table])
-  //     }
-  //   })
-  // )
+  file.value = null // Clear input
+
+  await Promise.all(
+    tableKeys.map((table: AppTable) => {
+      // Logs and Settings are NOT imported
+      if (table !== AppTable.SETTINGS && table !== AppTable.LOGS) {
+        importItems(table, importData[table])
+      }
+    })
+  )
+
+  log.info('Imported available data with exclusions')
 }
 </script>
 

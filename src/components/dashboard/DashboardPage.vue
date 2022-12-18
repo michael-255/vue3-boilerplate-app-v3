@@ -1,24 +1,35 @@
 <script setup lang="ts">
 import { QPage, QBtn } from 'quasar'
 import MessageCard from '@/components/dashboard/MessageCard.vue'
-import useDBClear from '@/use/useDBClear'
-import useDBParents from '@/use/useDBParents'
-import useDBRecords from '@/use/useDBRecords'
-import useDBSettings from '@/use/useDBSettings'
-import useDBLogs from '@/use/useDBLogs'
 import useLogger from '@/use/useLogger'
+import useDBShared from '@/use/useDBShared'
+import { onMounted } from 'vue'
+import { AppTable } from '@/constants/table'
+import { ParentStatus, CoreType, Field, SettingKey, MeasurementInputs } from '@/constants/model'
+import type { IDBParent } from '@/models/Parent'
+import defaultMeasurements from '@/constants/data/default-measurements'
 
 const { log, consoleLog } = useLogger()
-const { clearTable, deleteDatabase } = useDBClear()
-const { getParentsTable } = useDBParents()
-const { getRecordsTable } = useDBRecords()
-const { getSettingsTable, initializeSettings, setSetting } = useDBSettings()
-const { getLogsTable, addLog } = useDBLogs()
+const { deleteItem } = useDBShared()
 
-function test() {
-  consoleLog('test1', { a: 'test2', b: 'test3' }, 'test4', 'test5')
-  log.debug('DEBUG TEST', {}, 'Dashboard')
-  log.error('error', new Error('Testing Error!'), 'DashboardPage:onMounted')
+onMounted(async () => {
+  // FOR TESTING
+})
+
+async function test() {
+  const convertedParents = defaultMeasurements.map((m: any) => {
+    return {
+      [Field.TYPE]: CoreType.MEASUREMENT_PARENT,
+      [Field.ID]: m.id,
+      [Field.CREATED_TIMESTAMP]: 1641013200000,
+      [Field.PARENT_STATUS]: ParentStatus.ENABLED,
+      [Field.NAME]: m.name,
+      [Field.DESCRIPTION]: 'XXXXX',
+      [Field.MEASUREMENT_INPUTS]: [],
+    }
+  })
+
+  consoleLog(convertedParents)
 }
 </script>
 

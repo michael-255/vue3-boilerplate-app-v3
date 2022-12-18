@@ -11,14 +11,6 @@ export default function useDBSettings() {
   const settingsStore = useSettingsStore()
 
   /**
-   * Gets all data from Settings table.
-   * @returns IDBSetting[]
-   */
-  async function getSettingsTable(): Promise<IDBSetting[]> {
-    return await dexieWrapper.table(AppTable.SETTINGS).toArray()
-  }
-
-  /**
    * Gets the setting value by key.
    * @param key
    * @returns SettingValue or undefined
@@ -33,7 +25,7 @@ export default function useDBSettings() {
    * Sets the Settings to their database or default values.
    */
   async function initializeSettings(): Promise<void> {
-    const settings: IDBSetting[] = await getSettingsTable()
+    const settings: IDBSetting[] = await dexieWrapper.table(AppTable.SETTINGS).toArray()
 
     // Function that returns the Setting value field or undefined
     const findSettingValue = (key: SettingKey): SettingValue | undefined => {
@@ -102,7 +94,6 @@ export default function useDBSettings() {
   }
 
   return {
-    getSettingsTable,
     getSettingValue,
     initializeSettings,
     setSetting,
