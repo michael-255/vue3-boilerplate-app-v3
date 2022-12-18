@@ -1,10 +1,10 @@
-import { AppTable } from '@/constants/table'
+import type { IDBRecord } from '@/models/Record'
+import { Field } from '@/constants/model'
+import { CoreType, RecordStatus } from '@/constants/model'
 import useLogger from '@/use/useLogger'
-// import useDBShared from '@/use/useDBShared'
 
 export default function useConverter() {
   const { log, consoleDebug } = useLogger()
-  // const { importItems } = useDBShared()
 
   /**
    * Convert Fitness Tracker v16 data into new format.
@@ -15,27 +15,42 @@ export default function useConverter() {
 
     consoleDebug('parsedFileData =', parsedFileData)
 
-    const convertedData = {
-      [AppTable.PARENTS]: [],
-      [AppTable.RECORDS]: [],
-      [AppTable.SETTINGS]: [],
-      [AppTable.LOGS]: [],
-    }
+    const convertedRecords: IDBRecord[] = []
 
-    // Measurement Parents
-    parsedFileData?.measurements?.forEach((m: any) => {
-      /*
-      {
-        [Field.TYPE]: CoreType.MEASUREMENT_PARENT,
-        [Field.ID]: '959b92ba-b9ff-4073-9c00-9f2d511715e6',
-        [Field.CREATED_TIMESTAMP]: 1325394000000,
-        [Field.PARENT_STATUS]: ParentStatus.ENABLED,
-        [Field.NAME]: 'Height',
-        [Field.DESCRIPTION]: 'Measurement of standing height.',
-        [Field.MEASUREMENT_INPUTS]: [MeasurementInputs.LBS],
-      }
-      */
+    // Measurement Records
+    parsedFileData?.measurementRecords?.forEach((mr: any) => {
+      convertedRecords.push({
+        [Field.TYPE]: CoreType.MEASUREMENT_RECORD,
+        [Field.ID]: mr?.id,
+        [Field.CREATED_TIMESTAMP]: new Date(mr?.createdDate).getTime(),
+        [Field.RECORD_STATUS]: RecordStatus.COMPLETED,
+        [Field.PARENT_ID]: mr?.parentId,
+        [Field.NOTE]: '',
+        [Field.MEASUREMENT_VALUES]: [mr?.measurementValue],
+      } as IDBRecord)
     })
+
+    // Exercise Records
+    parsedFileData?.exerciseRecords?.forEach((er: any) => {
+      const newRecord: IDBRecord = {
+        [Field.TYPE]: CoreType.MEASUREMENT_RECORD,
+        [Field.ID]: er?.id,
+        [Field.CREATED_TIMESTAMP]: new Date(er?.createdDate).getTime(),
+        [Field.RECORD_STATUS]: RecordStatus.COMPLETED,
+        [Field.PARENT_ID]: er?.parentId,
+        [Field.NOTE]: '',
+      }
+
+      if (er?.reps.length > 0) {
+        newRecord[Field.WEIGHT_LBS] = er?.weight
+        newRecord[Field.REPS] = er?.reps
+        convertedRecords.push(newRecord)
+      } else {
+        consoleDebug('Skipping Record =', er?.id)
+      }
+    })
+
+    consoleDebug('convertedRecords =', convertedRecords)
 
     log.info('Converted available data with exclusions')
   }

@@ -55,9 +55,9 @@ export enum ParentStatus {
 }
 
 export enum RecordStatus {
-  COMPLETED = 'Completed',
+  NONE = 'None',
   SKIPPED = 'Skipped',
-  ACTIVE = 'Active',
+  COMPLETED = 'Completed',
 }
 
 export enum Severity {
@@ -94,6 +94,7 @@ export enum MeasurementInputs {
 }
 
 export enum ExerciseInputs {
+  REMINDER = 'Reminder',
   CONFIRMATION = 'Confirmation',
   MULTIPLE_SETS = 'Multiple Sets',
   WEIGHT_LBS = 'Weight (Lbs)',
