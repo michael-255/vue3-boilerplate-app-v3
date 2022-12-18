@@ -15,10 +15,10 @@ const file: Ref<any> = ref(null)
 const fileSizeLimit = 100000000 // 100 mega bytes
 
 /**
- * Called when an import has been rejected by the input.
+ * Called when a file has been rejected by the input.
  * @param entries
  */
-function onRejectedImport(entries: any): void {
+function onRejectedFile(entries: any): void {
   const fileName = entries[0]?.file?.name || undefined
   log.warn(`Cannot import "${fileName}"`, entries)
 }
@@ -84,7 +84,7 @@ async function confirmedFileImport(): Promise<void> {
     label="File"
     :max-file-size="fileSizeLimit"
     accept="application/json"
-    @rejected="onRejectedImport"
+    @rejected="onRejectedFile"
   >
     <template v-slot:before>
       <QBtn :disable="!file" label="Import" color="primary" class="q-mr-xs" @click="onImport()" />

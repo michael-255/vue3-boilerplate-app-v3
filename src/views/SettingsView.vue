@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { QPage, QCard, QCardSection } from 'quasar'
 import { Icon } from '@/constants/app'
-import OptionsSection from '@/components/settings/OptionsCard.vue'
-import DefaultsSection from '@/components/settings/DefaultsCard.vue'
-import ImportExportSection from '@/components/settings/ImportExportCard.vue'
-import DangerZoneSection from '@/components/settings/DangerZoneCard.vue'
+import OptionsCard from '@/components/settings/OptionsCard.vue'
+import DefaultsCard from '@/components/settings/DefaultsCard.vue'
+import ImportExportCard from '@/components/settings/ImportExportCard.vue'
+import DangerZoneCard from '@/components/settings/DangerZoneCard.vue'
 </script>
 
 <template>
@@ -17,9 +17,9 @@ import DangerZoneSection from '@/components/settings/DangerZoneCard.vue'
       </QCardSection>
     </QCard>
 
-    <OptionsSection class="q-mb-sm" />
-    <DefaultsSection class="q-mb-sm" />
-    <ImportExportSection class="q-mb-sm" />
-    <DangerZoneSection />
+    <OptionsCard class="q-mb-sm" />
+    <DefaultsCard class="q-mb-sm" />
+    <ImportExportCard class="q-mb-sm" />
+    <DangerZoneCard />
   </QPage>
 </template>

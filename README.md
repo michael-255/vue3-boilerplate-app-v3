@@ -9,6 +9,7 @@ Reference `ideas-scratch` for many of the changes you want to make.
 
 - [ ] Reimplement `Settings` page and components
 
+  - [ ] Converter for `v16` data built into `Settings`
   - [ ] Default `Exercises`
 
 - [ ] Stop using `QCard` (wastes to much space)
