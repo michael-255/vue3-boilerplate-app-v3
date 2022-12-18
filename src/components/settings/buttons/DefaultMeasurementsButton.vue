@@ -37,6 +37,6 @@ async function loadDefaults(): Promise<void> {
 <template>
   <!-- Div ensures this item will stack on screen -->
   <div>
-    <QBtn label="Load Default Measurements" color="primary" @click="onDefaults()" />
+    <QBtn label="Load Measurements" color="primary" @click="onDefaults()" />
   </div>
 </template>

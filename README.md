@@ -25,6 +25,10 @@ Select Box options for data tables:
 Take-Measurement Page:
 
 - [ ] Collect inputs into groups (`BMI`, `Heart`, etc.)
+- [ ] Page for `BMI`
+- [ ] Page for `Body`
+- [ ] Page for `Heart`
+- [ ] Page for `Pain`
 
 Endgame:
 
