@@ -7,6 +7,7 @@ import { onMounted, type Ref, ref } from 'vue'
 import { Field } from '@/constants/model'
 import useLogger from '@/use/useLogger'
 import useDBMeasurements from '@/use/useDBMeasurements'
+import MeasurementCard from '@/components/take-measurements/MeasurementCard.vue'
 
 const route = useRoute()
 const { log } = useLogger()
@@ -23,7 +24,6 @@ onMounted(async () => {
     if (categoryKeys.includes(categoryParam)) {
       category.value = categoryParam
       measurementCards.value = await getTakeMeasurementCards(categoryParam)
-      // TODO - Load measurementCards for the category...
       // TODO - need to have an onUpdated call when things change for the cards...
     } else {
       throw new Error('Category not recognized')
@@ -44,8 +44,14 @@ onMounted(async () => {
       </QCardSection>
     </QCard>
 
-    <div class="row q-col-gutter-md justify-start">
-      <div class="col-12">TEST</div>
+    <div class="row q-col-gutter-sm justify-start">
+      <div
+        v-for="measurementCard in measurementCards"
+        :key="measurementCard.id"
+        class="col-md-4 col-sm-6 col-xs-12"
+      >
+        <MeasurementCard :measurementCard="measurementCard" />
+      </div>
     </div>
   </QPage>
 </template>

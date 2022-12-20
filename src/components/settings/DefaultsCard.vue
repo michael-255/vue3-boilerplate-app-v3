@@ -13,7 +13,7 @@ import DefaultExercisesButton from '@/components/settings/buttons/DefaultExercis
         Load default data into the database that you can begin using right away.
       </div>
 
-      <DefaultMeasurementsButton class="q-mb-md" />
+      <DefaultMeasurementsButton class="q-mb-sm" />
       <DefaultExercisesButton />
     </QCardSection>
   </QCard>

@@ -21,7 +21,7 @@ import DeleteDatabaseButton from '@/components/settings/buttons/DeleteDatabaseBu
           </span>
         </div>
 
-        <ClearAllButton class="q-mb-md" />
+        <ClearAllButton class="q-mb-sm" />
         <DeleteDatabaseButton />
       </div>
     </QCardSection>

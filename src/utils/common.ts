@@ -71,16 +71,22 @@ export function truncateString(
 }
 
 /**
- * Converts and outputs the ISO date string as a human readable local date string
- * @param date ISO string
+ * Converts timestamp to a human readable local date string.
+ * @param timestamp
  * @returns Example: Sun Jun 6 2022 1:30:45 PM EDT
  */
-export function isoToDisplayDate(date: string): string | undefined {
-  const luxonDate = DateTime.fromISO(date).toFormat('ccc LLL d yyyy ttt')
-  if (!luxonDate || luxonDate === 'Invalid DateTime') {
+export function getDateFromTimestamp(timestamp?: number): string | undefined {
+  if (!timestamp) {
     return undefined
   }
-  return luxonDate
+
+  const luxonDate = DateTime.fromMillis(timestamp).toFormat('ccc LLL d yyyy ttt')
+
+  if (!luxonDate || luxonDate === 'Invalid DateTime') {
+    return undefined
+  } else {
+    return luxonDate
+  }
 }
 
 /**
@@ -88,9 +94,9 @@ export function isoToDisplayDate(date: string): string | undefined {
  * @param milliseconds
  * @returns Example: 1d 14h 6m 33s
  */
-export function getDurationFromMilliseconds(milliseconds: number): string {
+export function getDurationFromMilliseconds(milliseconds?: number): string | undefined {
   if (!milliseconds || milliseconds < 1000) {
-    return '-'
+    return undefined
   }
 
   const seconds = Math.floor((milliseconds / Milliseconds.PER_SECOND) % 60)

@@ -11,7 +11,7 @@ const categories = Object.values(MeasurementCategory)
     <QCardSection>
       <div class="text-h6 q-mb-md">Take Measurements</div>
 
-      <div class="row q-col-gutter-md justify-start">
+      <div class="row q-col-gutter-sm justify-start">
         <div
           v-for="(category, index) in categories"
           :key="index"
