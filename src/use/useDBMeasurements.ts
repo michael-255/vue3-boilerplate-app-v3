@@ -1,15 +1,23 @@
 import { dexieWrapper } from '@/services/DexieWrapper'
-import { Field, MeasurementCategory, MeasurementInputs } from '@/constants/model'
+import { Field, MeasurementCategory, MeasurementInput } from '@/constants/model'
 import { AppTable } from '@/constants/table'
 import type { IDBMeasurement } from '@/models/Measurement'
 import type { IDBMeasurementRecord } from '@/models/MeasurementRecord'
+import { isPositiveNumber } from '@/utils/validators'
 
 export type MeasurementCard = {
   [Field.ID]: string
   [Field.NAME]: string
-  [Field.MEASUREMENT_INPUTS]: MeasurementInputs[]
+  [Field.MEASUREMENT_INPUTS]: MeasurementInput[]
   [Field.CREATED_TIMESTAMP]?: number // Previous record
   [Field.MEASUREMENT_VALUES]?: number[] // Previous record
+  cardInputs: MeasurementCardInput[]
+}
+
+export type MeasurementCardInput = {
+  name: MeasurementInput
+  ref: string
+  rule: (x: any) => any
 }
 
 export default function useDBMeasurements() {
@@ -40,12 +48,22 @@ export default function useDBMeasurements() {
             .sortBy(Field.CREATED_TIMESTAMP)
         ).reverse()[0]
 
+        // Build inputs
+        const inputs = measurement.measurementInputs.map((input: MeasurementInput) => {
+          return {
+            name: input,
+            ref: `inputRef_${input}`,
+            rule: (val: number) => isPositiveNumber(Number(val)) || 'Positive number required',
+          }
+        })
+
         return {
           id: measurement.id,
           name: measurement.name,
           measurementInputs: measurement.measurementInputs,
           createdTimestamp: mostRecentMeasurementRecord?.createdTimestamp,
           measurementValues: mostRecentMeasurementRecord?.measurementValues,
+          cardInputs: inputs,
         } as MeasurementCard
       })
     )

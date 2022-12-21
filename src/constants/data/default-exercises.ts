@@ -1,4 +1,4 @@
-import { ExerciseInputs, Field, ParentStatus } from '@/constants/model'
+import { ExerciseInput, Field, ParentStatus } from '@/constants/model'
 import type { IDBExercise } from '@/models/Exercise'
 
 /**
@@ -16,7 +16,7 @@ const defaultExercises: IDBExercise[] = [
     [Field.PARENT_STATUS]: ParentStatus.ENABLED,
     [Field.NAME]: 'Warm-up',
     [Field.DESCRIPTION]: 'TODO DESCRIPTION',
-    [Field.EXERCISE_INPUTS]: [ExerciseInputs.CONFIRMATION],
+    [Field.EXERCISE_INPUTS]: [ExerciseInput.CONFIRMATION],
   },
   {
     [Field.ID]: '3df82a9d-9ebc-4816-9a26-994f33ef892e',
@@ -24,7 +24,7 @@ const defaultExercises: IDBExercise[] = [
     [Field.PARENT_STATUS]: ParentStatus.ENABLED,
     [Field.NAME]: 'Cool-down',
     [Field.DESCRIPTION]: 'TODO DESCRIPTION',
-    [Field.EXERCISE_INPUTS]: [ExerciseInputs.CONFIRMATION],
+    [Field.EXERCISE_INPUTS]: [ExerciseInput.CONFIRMATION],
   },
   //
   // Stretches
@@ -35,7 +35,7 @@ const defaultExercises: IDBExercise[] = [
     [Field.PARENT_STATUS]: ParentStatus.ENABLED,
     [Field.NAME]: 'Chin Tucks',
     [Field.DESCRIPTION]: 'TODO DESCRIPTION',
-    [Field.EXERCISE_INPUTS]: [ExerciseInputs.MULTIPLE_SETS, ExerciseInputs.REPS],
+    [Field.EXERCISE_INPUTS]: [ExerciseInput.MULTIPLE_SETS, ExerciseInput.REPS],
   },
   {
     [Field.ID]: 'b1db0af2-a077-403a-9ca0-9892af3f911e',
@@ -43,7 +43,7 @@ const defaultExercises: IDBExercise[] = [
     [Field.PARENT_STATUS]: ParentStatus.ENABLED,
     [Field.NAME]: 'Hip Flexor Stretch (30 seconds each)',
     [Field.DESCRIPTION]: 'TODO DESCRIPTION',
-    [Field.EXERCISE_INPUTS]: [ExerciseInputs.CONFIRMATION],
+    [Field.EXERCISE_INPUTS]: [ExerciseInput.CONFIRMATION],
   },
   {
     [Field.ID]: '1e5e8ca5-9dd3-4de9-88b3-ad197aecf980',
@@ -51,7 +51,7 @@ const defaultExercises: IDBExercise[] = [
     [Field.PARENT_STATUS]: ParentStatus.ENABLED,
     [Field.NAME]: 'Calf Stretch (30 seconds each)',
     [Field.DESCRIPTION]: 'TODO DESCRIPTION',
-    [Field.EXERCISE_INPUTS]: [ExerciseInputs.CONFIRMATION],
+    [Field.EXERCISE_INPUTS]: [ExerciseInput.CONFIRMATION],
   },
   {
     [Field.ID]: '44a1a5d4-9b41-4f40-b513-fd7c90339c9b',
@@ -59,7 +59,7 @@ const defaultExercises: IDBExercise[] = [
     [Field.PARENT_STATUS]: ParentStatus.ENABLED,
     [Field.NAME]: 'Doorway Chest Stretch (30 seconds)',
     [Field.DESCRIPTION]: 'TODO DESCRIPTION',
-    [Field.EXERCISE_INPUTS]: [ExerciseInputs.CONFIRMATION],
+    [Field.EXERCISE_INPUTS]: [ExerciseInput.CONFIRMATION],
   },
   {
     [Field.ID]: '4f742060-bc1b-4dc8-ab9f-578fc3724681',
@@ -67,7 +67,7 @@ const defaultExercises: IDBExercise[] = [
     [Field.PARENT_STATUS]: ParentStatus.ENABLED,
     [Field.NAME]: 'IT Band Stretch (90 seconds each)',
     [Field.DESCRIPTION]: 'TODO DESCRIPTION',
-    [Field.EXERCISE_INPUTS]: [ExerciseInputs.CONFIRMATION],
+    [Field.EXERCISE_INPUTS]: [ExerciseInput.CONFIRMATION],
   },
   {
     [Field.ID]: '5a22d2ce-d94e-4ef1-838a-785a74364044',
@@ -75,7 +75,7 @@ const defaultExercises: IDBExercise[] = [
     [Field.PARENT_STATUS]: ParentStatus.ENABLED,
     [Field.NAME]: 'Lying Glute Stretch (30 seconds each)',
     [Field.DESCRIPTION]: 'TODO DESCRIPTION',
-    [Field.EXERCISE_INPUTS]: [ExerciseInputs.CONFIRMATION],
+    [Field.EXERCISE_INPUTS]: [ExerciseInput.CONFIRMATION],
   },
   {
     [Field.ID]: 'a7eb02e6-90e4-466f-9d23-e59c6617f1cb',
@@ -83,7 +83,7 @@ const defaultExercises: IDBExercise[] = [
     [Field.PARENT_STATUS]: ParentStatus.ENABLED,
     [Field.NAME]: 'Standing Quad Stretch (30 seconds each)',
     [Field.DESCRIPTION]: 'TODO DESCRIPTION',
-    [Field.EXERCISE_INPUTS]: [ExerciseInputs.CONFIRMATION],
+    [Field.EXERCISE_INPUTS]: [ExerciseInput.CONFIRMATION],
   },
   {
     [Field.ID]: 'd9738508-4f59-45a9-8bf4-f28b5c6c7b76',
@@ -91,7 +91,7 @@ const defaultExercises: IDBExercise[] = [
     [Field.PARENT_STATUS]: ParentStatus.ENABLED,
     [Field.NAME]: 'Toe Touch Stretch (30 seconds)',
     [Field.DESCRIPTION]: 'TODO DESCRIPTION',
-    [Field.EXERCISE_INPUTS]: [ExerciseInputs.CONFIRMATION],
+    [Field.EXERCISE_INPUTS]: [ExerciseInput.CONFIRMATION],
   },
   {
     [Field.ID]: 'f701c325-8f3c-48bc-bef3-9228bea28faa',
@@ -99,7 +99,7 @@ const defaultExercises: IDBExercise[] = [
     [Field.PARENT_STATUS]: ParentStatus.ENABLED,
     [Field.NAME]: 'Perpendicular Spinal Foam Role (90 seconds)',
     [Field.DESCRIPTION]: 'TODO DESCRIPTION',
-    [Field.EXERCISE_INPUTS]: [ExerciseInputs.CONFIRMATION],
+    [Field.EXERCISE_INPUTS]: [ExerciseInput.CONFIRMATION],
   },
   {
     [Field.ID]: '73df6ff8-da81-49ea-93e3-dbed7d61cdcd',
@@ -107,7 +107,7 @@ const defaultExercises: IDBExercise[] = [
     [Field.PARENT_STATUS]: ParentStatus.ENABLED,
     [Field.NAME]: 'Parallel Spinal Foam Role (90 seconds)',
     [Field.DESCRIPTION]: 'TODO DESCRIPTION',
-    [Field.EXERCISE_INPUTS]: [ExerciseInputs.CONFIRMATION],
+    [Field.EXERCISE_INPUTS]: [ExerciseInput.CONFIRMATION],
   },
   //
   // Wrist
@@ -118,7 +118,7 @@ const defaultExercises: IDBExercise[] = [
     [Field.PARENT_STATUS]: ParentStatus.ENABLED,
     [Field.NAME]: 'Median Nerve Sliders',
     [Field.DESCRIPTION]: 'TODO DESCRIPTION',
-    [Field.EXERCISE_INPUTS]: [ExerciseInputs.MULTIPLE_SETS, ExerciseInputs.REPS],
+    [Field.EXERCISE_INPUTS]: [ExerciseInput.MULTIPLE_SETS, ExerciseInput.REPS],
   },
   {
     [Field.ID]: 'b338a362-384e-47de-a28c-fb8ac7e0a27f',
@@ -126,7 +126,7 @@ const defaultExercises: IDBExercise[] = [
     [Field.PARENT_STATUS]: ParentStatus.ENABLED,
     [Field.NAME]: 'Fist, Knuckles, Open Hand',
     [Field.DESCRIPTION]: 'TODO DESCRIPTION',
-    [Field.EXERCISE_INPUTS]: [ExerciseInputs.MULTIPLE_SETS, ExerciseInputs.REPS],
+    [Field.EXERCISE_INPUTS]: [ExerciseInput.MULTIPLE_SETS, ExerciseInput.REPS],
   },
   {
     [Field.ID]: 'e0dbb528-534b-4496-a53b-1997d4cd0d09',
@@ -134,7 +134,7 @@ const defaultExercises: IDBExercise[] = [
     [Field.PARENT_STATUS]: ParentStatus.ENABLED,
     [Field.NAME]: 'Finger Tip Bends',
     [Field.DESCRIPTION]: 'TODO DESCRIPTION',
-    [Field.EXERCISE_INPUTS]: [ExerciseInputs.MULTIPLE_SETS, ExerciseInputs.REPS],
+    [Field.EXERCISE_INPUTS]: [ExerciseInput.MULTIPLE_SETS, ExerciseInput.REPS],
   },
   {
     [Field.ID]: '4de05952-0e6b-4cb5-9ac8-9436aca2497e',
@@ -142,7 +142,7 @@ const defaultExercises: IDBExercise[] = [
     [Field.PARENT_STATUS]: ParentStatus.ENABLED,
     [Field.NAME]: 'Finger Knuckle Bends',
     [Field.DESCRIPTION]: 'TODO DESCRIPTION',
-    [Field.EXERCISE_INPUTS]: [ExerciseInputs.MULTIPLE_SETS, ExerciseInputs.REPS],
+    [Field.EXERCISE_INPUTS]: [ExerciseInput.MULTIPLE_SETS, ExerciseInput.REPS],
   },
   {
     [Field.ID]: '4505c250-0dfa-491a-985f-df562fdde4ff',
@@ -150,7 +150,7 @@ const defaultExercises: IDBExercise[] = [
     [Field.PARENT_STATUS]: ParentStatus.ENABLED,
     [Field.NAME]: 'Bent To Open Wrist Stretch',
     [Field.DESCRIPTION]: 'TODO DESCRIPTION',
-    [Field.EXERCISE_INPUTS]: [ExerciseInputs.MULTIPLE_SETS, ExerciseInputs.REPS],
+    [Field.EXERCISE_INPUTS]: [ExerciseInput.MULTIPLE_SETS, ExerciseInput.REPS],
   },
   {
     [Field.ID]: '97af1cdc-b18b-490d-ba01-e97f971ef094',
@@ -158,7 +158,7 @@ const defaultExercises: IDBExercise[] = [
     [Field.PARENT_STATUS]: ParentStatus.ENABLED,
     [Field.NAME]: 'Open/Closed Thumbs',
     [Field.DESCRIPTION]: 'TODO DESCRIPTION',
-    [Field.EXERCISE_INPUTS]: [ExerciseInputs.MULTIPLE_SETS, ExerciseInputs.REPS],
+    [Field.EXERCISE_INPUTS]: [ExerciseInput.MULTIPLE_SETS, ExerciseInput.REPS],
   },
   //
   // Chest
@@ -170,9 +170,9 @@ const defaultExercises: IDBExercise[] = [
     [Field.NAME]: 'Wide Push-ups',
     [Field.DESCRIPTION]: 'TODO DESCRIPTION',
     [Field.EXERCISE_INPUTS]: [
-      ExerciseInputs.MULTIPLE_SETS,
-      ExerciseInputs.WEIGHT_LBS,
-      ExerciseInputs.REPS,
+      ExerciseInput.MULTIPLE_SETS,
+      ExerciseInput.WEIGHT_LBS,
+      ExerciseInput.REPS,
     ],
   },
   {
@@ -182,9 +182,9 @@ const defaultExercises: IDBExercise[] = [
     [Field.NAME]: 'Bench Press',
     [Field.DESCRIPTION]: 'TODO DESCRIPTION',
     [Field.EXERCISE_INPUTS]: [
-      ExerciseInputs.MULTIPLE_SETS,
-      ExerciseInputs.WEIGHT_LBS,
-      ExerciseInputs.REPS,
+      ExerciseInput.MULTIPLE_SETS,
+      ExerciseInput.WEIGHT_LBS,
+      ExerciseInput.REPS,
     ],
   },
   {
@@ -194,9 +194,9 @@ const defaultExercises: IDBExercise[] = [
     [Field.NAME]: 'Diamond Push-ups',
     [Field.DESCRIPTION]: 'TODO DESCRIPTION',
     [Field.EXERCISE_INPUTS]: [
-      ExerciseInputs.MULTIPLE_SETS,
-      ExerciseInputs.WEIGHT_LBS,
-      ExerciseInputs.REPS,
+      ExerciseInput.MULTIPLE_SETS,
+      ExerciseInput.WEIGHT_LBS,
+      ExerciseInput.REPS,
     ],
   },
   {
@@ -206,9 +206,9 @@ const defaultExercises: IDBExercise[] = [
     [Field.NAME]: 'Standard Push-ups',
     [Field.DESCRIPTION]: 'TODO DESCRIPTION',
     [Field.EXERCISE_INPUTS]: [
-      ExerciseInputs.MULTIPLE_SETS,
-      ExerciseInputs.WEIGHT_LBS,
-      ExerciseInputs.REPS,
+      ExerciseInput.MULTIPLE_SETS,
+      ExerciseInput.WEIGHT_LBS,
+      ExerciseInput.REPS,
     ],
   },
   {
@@ -218,9 +218,9 @@ const defaultExercises: IDBExercise[] = [
     [Field.NAME]: 'Military Push-ups',
     [Field.DESCRIPTION]: 'TODO DESCRIPTION',
     [Field.EXERCISE_INPUTS]: [
-      ExerciseInputs.MULTIPLE_SETS,
-      ExerciseInputs.WEIGHT_LBS,
-      ExerciseInputs.REPS,
+      ExerciseInput.MULTIPLE_SETS,
+      ExerciseInput.WEIGHT_LBS,
+      ExerciseInput.REPS,
     ],
   },
   {
@@ -230,9 +230,9 @@ const defaultExercises: IDBExercise[] = [
     [Field.NAME]: 'Decline Chest Press',
     [Field.DESCRIPTION]: 'TODO DESCRIPTION',
     [Field.EXERCISE_INPUTS]: [
-      ExerciseInputs.MULTIPLE_SETS,
-      ExerciseInputs.WEIGHT_LBS,
-      ExerciseInputs.REPS,
+      ExerciseInput.MULTIPLE_SETS,
+      ExerciseInput.WEIGHT_LBS,
+      ExerciseInput.REPS,
     ],
   },
   {
@@ -242,9 +242,9 @@ const defaultExercises: IDBExercise[] = [
     [Field.NAME]: 'Chest Press',
     [Field.DESCRIPTION]: 'TODO DESCRIPTION',
     [Field.EXERCISE_INPUTS]: [
-      ExerciseInputs.MULTIPLE_SETS,
-      ExerciseInputs.WEIGHT_LBS,
-      ExerciseInputs.REPS,
+      ExerciseInput.MULTIPLE_SETS,
+      ExerciseInput.WEIGHT_LBS,
+      ExerciseInput.REPS,
     ],
   },
   {
@@ -254,9 +254,9 @@ const defaultExercises: IDBExercise[] = [
     [Field.NAME]: 'Incline Chest Press',
     [Field.DESCRIPTION]: 'TODO DESCRIPTION',
     [Field.EXERCISE_INPUTS]: [
-      ExerciseInputs.MULTIPLE_SETS,
-      ExerciseInputs.WEIGHT_LBS,
-      ExerciseInputs.REPS,
+      ExerciseInput.MULTIPLE_SETS,
+      ExerciseInput.WEIGHT_LBS,
+      ExerciseInput.REPS,
     ],
   },
   {
@@ -266,9 +266,9 @@ const defaultExercises: IDBExercise[] = [
     [Field.NAME]: 'Incline Bench Press',
     [Field.DESCRIPTION]: 'TODO DESCRIPTION',
     [Field.EXERCISE_INPUTS]: [
-      ExerciseInputs.MULTIPLE_SETS,
-      ExerciseInputs.WEIGHT_LBS,
-      ExerciseInputs.REPS,
+      ExerciseInput.MULTIPLE_SETS,
+      ExerciseInput.WEIGHT_LBS,
+      ExerciseInput.REPS,
     ],
   },
   {
@@ -278,9 +278,9 @@ const defaultExercises: IDBExercise[] = [
     [Field.NAME]: 'Decline Bench Press',
     [Field.DESCRIPTION]: 'TODO DESCRIPTION',
     [Field.EXERCISE_INPUTS]: [
-      ExerciseInputs.MULTIPLE_SETS,
-      ExerciseInputs.WEIGHT_LBS,
-      ExerciseInputs.REPS,
+      ExerciseInput.MULTIPLE_SETS,
+      ExerciseInput.WEIGHT_LBS,
+      ExerciseInput.REPS,
     ],
   },
   {
@@ -290,9 +290,9 @@ const defaultExercises: IDBExercise[] = [
     [Field.NAME]: 'Pike Push-ups',
     [Field.DESCRIPTION]: 'TODO DESCRIPTION',
     [Field.EXERCISE_INPUTS]: [
-      ExerciseInputs.MULTIPLE_SETS,
-      ExerciseInputs.WEIGHT_LBS,
-      ExerciseInputs.REPS,
+      ExerciseInput.MULTIPLE_SETS,
+      ExerciseInput.WEIGHT_LBS,
+      ExerciseInput.REPS,
     ],
   },
   //
@@ -305,9 +305,9 @@ const defaultExercises: IDBExercise[] = [
     [Field.NAME]: 'Farmers Walk',
     [Field.DESCRIPTION]: 'TODO DESCRIPTION',
     [Field.EXERCISE_INPUTS]: [
-      ExerciseInputs.MULTIPLE_SETS,
-      ExerciseInputs.WEIGHT_LBS,
-      ExerciseInputs.REPS,
+      ExerciseInput.MULTIPLE_SETS,
+      ExerciseInput.WEIGHT_LBS,
+      ExerciseInput.REPS,
     ],
   },
   {
@@ -317,9 +317,9 @@ const defaultExercises: IDBExercise[] = [
     [Field.NAME]: 'Tricep Pulldowns',
     [Field.DESCRIPTION]: 'TODO DESCRIPTION',
     [Field.EXERCISE_INPUTS]: [
-      ExerciseInputs.MULTIPLE_SETS,
-      ExerciseInputs.WEIGHT_LBS,
-      ExerciseInputs.REPS,
+      ExerciseInput.MULTIPLE_SETS,
+      ExerciseInput.WEIGHT_LBS,
+      ExerciseInput.REPS,
     ],
   },
   {
@@ -329,9 +329,9 @@ const defaultExercises: IDBExercise[] = [
     [Field.NAME]: 'Overhand Bicep Curls',
     [Field.DESCRIPTION]: 'TODO DESCRIPTION',
     [Field.EXERCISE_INPUTS]: [
-      ExerciseInputs.MULTIPLE_SETS,
-      ExerciseInputs.WEIGHT_LBS,
-      ExerciseInputs.REPS,
+      ExerciseInput.MULTIPLE_SETS,
+      ExerciseInput.WEIGHT_LBS,
+      ExerciseInput.REPS,
     ],
   },
   {
@@ -341,9 +341,9 @@ const defaultExercises: IDBExercise[] = [
     [Field.NAME]: 'Hammer Bicep Curls',
     [Field.DESCRIPTION]: 'TODO DESCRIPTION',
     [Field.EXERCISE_INPUTS]: [
-      ExerciseInputs.MULTIPLE_SETS,
-      ExerciseInputs.WEIGHT_LBS,
-      ExerciseInputs.REPS,
+      ExerciseInput.MULTIPLE_SETS,
+      ExerciseInput.WEIGHT_LBS,
+      ExerciseInput.REPS,
     ],
   },
   {
@@ -353,9 +353,9 @@ const defaultExercises: IDBExercise[] = [
     [Field.NAME]: 'Tricep Kickbacks',
     [Field.DESCRIPTION]: 'TODO DESCRIPTION',
     [Field.EXERCISE_INPUTS]: [
-      ExerciseInputs.MULTIPLE_SETS,
-      ExerciseInputs.WEIGHT_LBS,
-      ExerciseInputs.REPS,
+      ExerciseInput.MULTIPLE_SETS,
+      ExerciseInput.WEIGHT_LBS,
+      ExerciseInput.REPS,
     ],
   },
   {
@@ -365,9 +365,9 @@ const defaultExercises: IDBExercise[] = [
     [Field.NAME]: 'Standard Bicep Curls',
     [Field.DESCRIPTION]: 'TODO DESCRIPTION',
     [Field.EXERCISE_INPUTS]: [
-      ExerciseInputs.MULTIPLE_SETS,
-      ExerciseInputs.WEIGHT_LBS,
-      ExerciseInputs.REPS,
+      ExerciseInput.MULTIPLE_SETS,
+      ExerciseInput.WEIGHT_LBS,
+      ExerciseInput.REPS,
     ],
   },
   {
@@ -377,9 +377,9 @@ const defaultExercises: IDBExercise[] = [
     [Field.NAME]: 'Tricep Overhead Extentions',
     [Field.DESCRIPTION]: 'TODO DESCRIPTION',
     [Field.EXERCISE_INPUTS]: [
-      ExerciseInputs.MULTIPLE_SETS,
-      ExerciseInputs.WEIGHT_LBS,
-      ExerciseInputs.REPS,
+      ExerciseInput.MULTIPLE_SETS,
+      ExerciseInput.WEIGHT_LBS,
+      ExerciseInput.REPS,
     ],
   },
   {
@@ -388,7 +388,7 @@ const defaultExercises: IDBExercise[] = [
     [Field.PARENT_STATUS]: ParentStatus.ENABLED,
     [Field.NAME]: 'Dips',
     [Field.DESCRIPTION]: 'TODO DESCRIPTION',
-    [Field.EXERCISE_INPUTS]: [ExerciseInputs.MULTIPLE_SETS, ExerciseInputs.REPS],
+    [Field.EXERCISE_INPUTS]: [ExerciseInput.MULTIPLE_SETS, ExerciseInput.REPS],
   },
   {
     [Field.ID]: '14d81138-a414-4504-8929-cfeeb3d29f4a',
@@ -397,9 +397,9 @@ const defaultExercises: IDBExercise[] = [
     [Field.NAME]: 'Lying Tricep Extension',
     [Field.DESCRIPTION]: 'TODO DESCRIPTION',
     [Field.EXERCISE_INPUTS]: [
-      ExerciseInputs.MULTIPLE_SETS,
-      ExerciseInputs.WEIGHT_LBS,
-      ExerciseInputs.REPS,
+      ExerciseInput.MULTIPLE_SETS,
+      ExerciseInput.WEIGHT_LBS,
+      ExerciseInput.REPS,
     ],
   },
   //
@@ -412,9 +412,9 @@ const defaultExercises: IDBExercise[] = [
     [Field.NAME]: 'Overhead Press',
     [Field.DESCRIPTION]: 'TODO DESCRIPTION',
     [Field.EXERCISE_INPUTS]: [
-      ExerciseInputs.MULTIPLE_SETS,
-      ExerciseInputs.WEIGHT_LBS,
-      ExerciseInputs.REPS,
+      ExerciseInput.MULTIPLE_SETS,
+      ExerciseInput.WEIGHT_LBS,
+      ExerciseInput.REPS,
     ],
   },
   {
@@ -424,9 +424,9 @@ const defaultExercises: IDBExercise[] = [
     [Field.NAME]: 'Front Arm Raises',
     [Field.DESCRIPTION]: 'TODO DESCRIPTION',
     [Field.EXERCISE_INPUTS]: [
-      ExerciseInputs.MULTIPLE_SETS,
-      ExerciseInputs.WEIGHT_LBS,
-      ExerciseInputs.REPS,
+      ExerciseInput.MULTIPLE_SETS,
+      ExerciseInput.WEIGHT_LBS,
+      ExerciseInput.REPS,
     ],
   },
   {
@@ -436,9 +436,9 @@ const defaultExercises: IDBExercise[] = [
     [Field.NAME]: 'Side Arm Raises',
     [Field.DESCRIPTION]: 'TODO DESCRIPTION',
     [Field.EXERCISE_INPUTS]: [
-      ExerciseInputs.MULTIPLE_SETS,
-      ExerciseInputs.WEIGHT_LBS,
-      ExerciseInputs.REPS,
+      ExerciseInput.MULTIPLE_SETS,
+      ExerciseInput.WEIGHT_LBS,
+      ExerciseInput.REPS,
     ],
   },
   {
@@ -448,9 +448,9 @@ const defaultExercises: IDBExercise[] = [
     [Field.NAME]: 'Shrugs',
     [Field.DESCRIPTION]: 'TODO DESCRIPTION',
     [Field.EXERCISE_INPUTS]: [
-      ExerciseInputs.MULTIPLE_SETS,
-      ExerciseInputs.WEIGHT_LBS,
-      ExerciseInputs.REPS,
+      ExerciseInput.MULTIPLE_SETS,
+      ExerciseInput.WEIGHT_LBS,
+      ExerciseInput.REPS,
     ],
   },
   //
@@ -463,9 +463,9 @@ const defaultExercises: IDBExercise[] = [
     [Field.NAME]: 'Cable Lat Pulldowns',
     [Field.DESCRIPTION]: 'TODO DESCRIPTION',
     [Field.EXERCISE_INPUTS]: [
-      ExerciseInputs.MULTIPLE_SETS,
-      ExerciseInputs.WEIGHT_LBS,
-      ExerciseInputs.REPS,
+      ExerciseInput.MULTIPLE_SETS,
+      ExerciseInput.WEIGHT_LBS,
+      ExerciseInput.REPS,
     ],
   },
   {
@@ -475,9 +475,9 @@ const defaultExercises: IDBExercise[] = [
     [Field.NAME]: 'Deadlift',
     [Field.DESCRIPTION]: 'TODO DESCRIPTION',
     [Field.EXERCISE_INPUTS]: [
-      ExerciseInputs.MULTIPLE_SETS,
-      ExerciseInputs.WEIGHT_LBS,
-      ExerciseInputs.REPS,
+      ExerciseInput.MULTIPLE_SETS,
+      ExerciseInput.WEIGHT_LBS,
+      ExerciseInput.REPS,
     ],
   },
   {
@@ -487,9 +487,9 @@ const defaultExercises: IDBExercise[] = [
     [Field.NAME]: 'Face Pulls',
     [Field.DESCRIPTION]: 'TODO DESCRIPTION',
     [Field.EXERCISE_INPUTS]: [
-      ExerciseInputs.MULTIPLE_SETS,
-      ExerciseInputs.WEIGHT_LBS,
-      ExerciseInputs.REPS,
+      ExerciseInput.MULTIPLE_SETS,
+      ExerciseInput.WEIGHT_LBS,
+      ExerciseInput.REPS,
     ],
   },
   {
@@ -498,7 +498,7 @@ const defaultExercises: IDBExercise[] = [
     [Field.PARENT_STATUS]: ParentStatus.ENABLED,
     [Field.NAME]: 'Band Scapular Retractions',
     [Field.DESCRIPTION]: 'TODO DESCRIPTION',
-    [Field.EXERCISE_INPUTS]: [ExerciseInputs.MULTIPLE_SETS, ExerciseInputs.REPS],
+    [Field.EXERCISE_INPUTS]: [ExerciseInput.MULTIPLE_SETS, ExerciseInput.REPS],
   },
   {
     [Field.ID]: '3af92ca9-66e9-4e97-88d9-f70af00251f1',
@@ -507,9 +507,9 @@ const defaultExercises: IDBExercise[] = [
     [Field.NAME]: 'Romanian Deadlift',
     [Field.DESCRIPTION]: 'TODO DESCRIPTION',
     [Field.EXERCISE_INPUTS]: [
-      ExerciseInputs.MULTIPLE_SETS,
-      ExerciseInputs.WEIGHT_LBS,
-      ExerciseInputs.REPS,
+      ExerciseInput.MULTIPLE_SETS,
+      ExerciseInput.WEIGHT_LBS,
+      ExerciseInput.REPS,
     ],
   },
   {
@@ -518,7 +518,7 @@ const defaultExercises: IDBExercise[] = [
     [Field.PARENT_STATUS]: ParentStatus.ENABLED,
     [Field.NAME]: 'Hammer Grip Pull-ups',
     [Field.DESCRIPTION]: 'TODO DESCRIPTION',
-    [Field.EXERCISE_INPUTS]: [ExerciseInputs.MULTIPLE_SETS, ExerciseInputs.REPS],
+    [Field.EXERCISE_INPUTS]: [ExerciseInput.MULTIPLE_SETS, ExerciseInput.REPS],
   },
   {
     [Field.ID]: '8c103b3b-dd21-4d67-a0c9-1cd1b6451046',
@@ -527,9 +527,9 @@ const defaultExercises: IDBExercise[] = [
     [Field.NAME]: 'Standard Pull-ups',
     [Field.DESCRIPTION]: 'TODO DESCRIPTION',
     [Field.EXERCISE_INPUTS]: [
-      ExerciseInputs.MULTIPLE_SETS,
-      ExerciseInputs.WEIGHT_LBS,
-      ExerciseInputs.REPS,
+      ExerciseInput.MULTIPLE_SETS,
+      ExerciseInput.WEIGHT_LBS,
+      ExerciseInput.REPS,
     ],
   },
   {
@@ -539,9 +539,9 @@ const defaultExercises: IDBExercise[] = [
     [Field.NAME]: 'Wide Overhand Pull-ups',
     [Field.DESCRIPTION]: 'TODO DESCRIPTION',
     [Field.EXERCISE_INPUTS]: [
-      ExerciseInputs.MULTIPLE_SETS,
-      ExerciseInputs.WEIGHT_LBS,
-      ExerciseInputs.REPS,
+      ExerciseInput.MULTIPLE_SETS,
+      ExerciseInput.WEIGHT_LBS,
+      ExerciseInput.REPS,
     ],
   },
   {
@@ -551,9 +551,9 @@ const defaultExercises: IDBExercise[] = [
     [Field.NAME]: 'Chin-ups',
     [Field.DESCRIPTION]: 'Close grip underhand pull up.',
     [Field.EXERCISE_INPUTS]: [
-      ExerciseInputs.MULTIPLE_SETS,
-      ExerciseInputs.WEIGHT_LBS,
-      ExerciseInputs.REPS,
+      ExerciseInput.MULTIPLE_SETS,
+      ExerciseInput.WEIGHT_LBS,
+      ExerciseInput.REPS,
     ],
   },
   {
@@ -563,9 +563,9 @@ const defaultExercises: IDBExercise[] = [
     [Field.NAME]: 'Bent Over Rows',
     [Field.DESCRIPTION]: 'TODO DESCRIPTION',
     [Field.EXERCISE_INPUTS]: [
-      ExerciseInputs.MULTIPLE_SETS,
-      ExerciseInputs.WEIGHT_LBS,
-      ExerciseInputs.REPS,
+      ExerciseInput.MULTIPLE_SETS,
+      ExerciseInput.WEIGHT_LBS,
+      ExerciseInput.REPS,
     ],
   },
   {
@@ -575,9 +575,9 @@ const defaultExercises: IDBExercise[] = [
     [Field.NAME]: 'T-Rows',
     [Field.DESCRIPTION]: 'TODO DESCRIPTION',
     [Field.EXERCISE_INPUTS]: [
-      ExerciseInputs.MULTIPLE_SETS,
-      ExerciseInputs.WEIGHT_LBS,
-      ExerciseInputs.REPS,
+      ExerciseInput.MULTIPLE_SETS,
+      ExerciseInput.WEIGHT_LBS,
+      ExerciseInput.REPS,
     ],
   },
   {
@@ -587,9 +587,9 @@ const defaultExercises: IDBExercise[] = [
     [Field.NAME]: 'Bent Over Back Flyes',
     [Field.DESCRIPTION]: 'TODO DESCRIPTION',
     [Field.EXERCISE_INPUTS]: [
-      ExerciseInputs.MULTIPLE_SETS,
-      ExerciseInputs.WEIGHT_LBS,
-      ExerciseInputs.REPS,
+      ExerciseInput.MULTIPLE_SETS,
+      ExerciseInput.WEIGHT_LBS,
+      ExerciseInput.REPS,
     ],
   },
   //
@@ -602,9 +602,9 @@ const defaultExercises: IDBExercise[] = [
     [Field.NAME]: 'Leg Curls',
     [Field.DESCRIPTION]: 'TODO DESCRIPTION',
     [Field.EXERCISE_INPUTS]: [
-      ExerciseInputs.MULTIPLE_SETS,
-      ExerciseInputs.WEIGHT_LBS,
-      ExerciseInputs.REPS,
+      ExerciseInput.MULTIPLE_SETS,
+      ExerciseInput.WEIGHT_LBS,
+      ExerciseInput.REPS,
     ],
   },
   {
@@ -613,7 +613,7 @@ const defaultExercises: IDBExercise[] = [
     [Field.PARENT_STATUS]: ParentStatus.ENABLED,
     [Field.NAME]: 'Wall Sit (30 seconds)',
     [Field.DESCRIPTION]: 'TODO DESCRIPTION',
-    [Field.EXERCISE_INPUTS]: [ExerciseInputs.CONFIRMATION],
+    [Field.EXERCISE_INPUTS]: [ExerciseInput.CONFIRMATION],
   },
   {
     [Field.ID]: '56be9ba9-11d0-4dbc-a58e-3bcb949d3177',
@@ -621,7 +621,7 @@ const defaultExercises: IDBExercise[] = [
     [Field.PARENT_STATUS]: ParentStatus.ENABLED,
     [Field.NAME]: 'Band Hip Extension',
     [Field.DESCRIPTION]: 'TODO DESCRIPTION',
-    [Field.EXERCISE_INPUTS]: [ExerciseInputs.MULTIPLE_SETS, ExerciseInputs.REPS],
+    [Field.EXERCISE_INPUTS]: [ExerciseInput.MULTIPLE_SETS, ExerciseInput.REPS],
   },
   {
     [Field.ID]: '50c1fc75-0975-45f8-8177-ff4988b00de2',
@@ -630,9 +630,9 @@ const defaultExercises: IDBExercise[] = [
     [Field.NAME]: 'Squats',
     [Field.DESCRIPTION]: 'TODO DESCRIPTION',
     [Field.EXERCISE_INPUTS]: [
-      ExerciseInputs.MULTIPLE_SETS,
-      ExerciseInputs.WEIGHT_LBS,
-      ExerciseInputs.REPS,
+      ExerciseInput.MULTIPLE_SETS,
+      ExerciseInput.WEIGHT_LBS,
+      ExerciseInput.REPS,
     ],
   },
   {
@@ -642,9 +642,9 @@ const defaultExercises: IDBExercise[] = [
     [Field.NAME]: 'Straight Lunges',
     [Field.DESCRIPTION]: 'TODO DESCRIPTION',
     [Field.EXERCISE_INPUTS]: [
-      ExerciseInputs.MULTIPLE_SETS,
-      ExerciseInputs.WEIGHT_LBS,
-      ExerciseInputs.REPS,
+      ExerciseInput.MULTIPLE_SETS,
+      ExerciseInput.WEIGHT_LBS,
+      ExerciseInput.REPS,
     ],
   },
   {
@@ -654,9 +654,9 @@ const defaultExercises: IDBExercise[] = [
     [Field.NAME]: 'Leg Extensions',
     [Field.DESCRIPTION]: 'TODO DESCRIPTION',
     [Field.EXERCISE_INPUTS]: [
-      ExerciseInputs.MULTIPLE_SETS,
-      ExerciseInputs.WEIGHT_LBS,
-      ExerciseInputs.REPS,
+      ExerciseInput.MULTIPLE_SETS,
+      ExerciseInput.WEIGHT_LBS,
+      ExerciseInput.REPS,
     ],
   },
   {
@@ -666,9 +666,9 @@ const defaultExercises: IDBExercise[] = [
     [Field.NAME]: 'Calf Raises',
     [Field.DESCRIPTION]: 'TODO DESCRIPTION',
     [Field.EXERCISE_INPUTS]: [
-      ExerciseInputs.MULTIPLE_SETS,
-      ExerciseInputs.WEIGHT_LBS,
-      ExerciseInputs.REPS,
+      ExerciseInput.MULTIPLE_SETS,
+      ExerciseInput.WEIGHT_LBS,
+      ExerciseInput.REPS,
     ],
   },
   {
@@ -678,9 +678,9 @@ const defaultExercises: IDBExercise[] = [
     [Field.NAME]: 'Side Lunges',
     [Field.DESCRIPTION]: 'TODO DESCRIPTION',
     [Field.EXERCISE_INPUTS]: [
-      ExerciseInputs.MULTIPLE_SETS,
-      ExerciseInputs.WEIGHT_LBS,
-      ExerciseInputs.REPS,
+      ExerciseInput.MULTIPLE_SETS,
+      ExerciseInput.WEIGHT_LBS,
+      ExerciseInput.REPS,
     ],
   },
   {
@@ -690,9 +690,9 @@ const defaultExercises: IDBExercise[] = [
     [Field.NAME]: 'Hip Thrusters',
     [Field.DESCRIPTION]: 'TODO DESCRIPTION',
     [Field.EXERCISE_INPUTS]: [
-      ExerciseInputs.MULTIPLE_SETS,
-      ExerciseInputs.WEIGHT_LBS,
-      ExerciseInputs.REPS,
+      ExerciseInput.MULTIPLE_SETS,
+      ExerciseInput.WEIGHT_LBS,
+      ExerciseInput.REPS,
     ],
   },
   //
@@ -705,9 +705,9 @@ const defaultExercises: IDBExercise[] = [
     [Field.NAME]: 'Abdominal Crunch',
     [Field.DESCRIPTION]: 'TODO DESCRIPTION',
     [Field.EXERCISE_INPUTS]: [
-      ExerciseInputs.MULTIPLE_SETS,
-      ExerciseInputs.WEIGHT_LBS,
-      ExerciseInputs.REPS,
+      ExerciseInput.MULTIPLE_SETS,
+      ExerciseInput.WEIGHT_LBS,
+      ExerciseInput.REPS,
     ],
   },
   {
@@ -717,9 +717,9 @@ const defaultExercises: IDBExercise[] = [
     [Field.NAME]: 'Russian Twist',
     [Field.DESCRIPTION]: 'TODO DESCRIPTION',
     [Field.EXERCISE_INPUTS]: [
-      ExerciseInputs.MULTIPLE_SETS,
-      ExerciseInputs.WEIGHT_LBS,
-      ExerciseInputs.REPS,
+      ExerciseInput.MULTIPLE_SETS,
+      ExerciseInput.WEIGHT_LBS,
+      ExerciseInput.REPS,
     ],
   },
   {
@@ -728,7 +728,7 @@ const defaultExercises: IDBExercise[] = [
     [Field.PARENT_STATUS]: ParentStatus.ENABLED,
     [Field.NAME]: 'Knee Bridges',
     [Field.DESCRIPTION]: 'TODO DESCRIPTION',
-    [Field.EXERCISE_INPUTS]: [ExerciseInputs.MULTIPLE_SETS, ExerciseInputs.REPS],
+    [Field.EXERCISE_INPUTS]: [ExerciseInput.MULTIPLE_SETS, ExerciseInput.REPS],
   },
   {
     [Field.ID]: 'e19c8ed4-a54d-41a5-a79e-794339fb60a6',
@@ -737,9 +737,9 @@ const defaultExercises: IDBExercise[] = [
     [Field.NAME]: 'Alternating Torso Twist',
     [Field.DESCRIPTION]: 'TODO DESCRIPTION',
     [Field.EXERCISE_INPUTS]: [
-      ExerciseInputs.MULTIPLE_SETS,
-      ExerciseInputs.WEIGHT_LBS,
-      ExerciseInputs.REPS,
+      ExerciseInput.MULTIPLE_SETS,
+      ExerciseInput.WEIGHT_LBS,
+      ExerciseInput.REPS,
     ],
   },
   {
@@ -749,9 +749,9 @@ const defaultExercises: IDBExercise[] = [
     [Field.NAME]: 'Oblique Side Bends',
     [Field.DESCRIPTION]: 'TODO DESCRIPTION',
     [Field.EXERCISE_INPUTS]: [
-      ExerciseInputs.MULTIPLE_SETS,
-      ExerciseInputs.WEIGHT_LBS,
-      ExerciseInputs.REPS,
+      ExerciseInput.MULTIPLE_SETS,
+      ExerciseInput.WEIGHT_LBS,
+      ExerciseInput.REPS,
     ],
   },
   //
@@ -763,7 +763,7 @@ const defaultExercises: IDBExercise[] = [
     [Field.PARENT_STATUS]: ParentStatus.ENABLED,
     [Field.NAME]: 'Mountain Climbers',
     [Field.DESCRIPTION]: 'TODO DESCRIPTION',
-    [Field.EXERCISE_INPUTS]: [ExerciseInputs.MULTIPLE_SETS, ExerciseInputs.REPS],
+    [Field.EXERCISE_INPUTS]: [ExerciseInput.MULTIPLE_SETS, ExerciseInput.REPS],
   },
   {
     [Field.ID]: 'adc82c70-683c-4594-b9fc-cfa0c5e73eeb',
@@ -771,7 +771,7 @@ const defaultExercises: IDBExercise[] = [
     [Field.PARENT_STATUS]: ParentStatus.ENABLED,
     [Field.NAME]: 'Jumping Jacks',
     [Field.DESCRIPTION]: 'TODO DESCRIPTION',
-    [Field.EXERCISE_INPUTS]: [ExerciseInputs.MULTIPLE_SETS, ExerciseInputs.REPS],
+    [Field.EXERCISE_INPUTS]: [ExerciseInput.MULTIPLE_SETS, ExerciseInput.REPS],
   },
   {
     [Field.ID]: '3d5ad916-8f1e-4266-bcf0-b9283a2acf2a',
@@ -780,9 +780,9 @@ const defaultExercises: IDBExercise[] = [
     [Field.NAME]: 'High Arms, Alternating Knees',
     [Field.DESCRIPTION]: 'TODO DESCRIPTION',
     [Field.EXERCISE_INPUTS]: [
-      ExerciseInputs.MULTIPLE_SETS,
-      ExerciseInputs.WEIGHT_LBS,
-      ExerciseInputs.REPS,
+      ExerciseInput.MULTIPLE_SETS,
+      ExerciseInput.WEIGHT_LBS,
+      ExerciseInput.REPS,
     ],
   },
   {
@@ -791,7 +791,7 @@ const defaultExercises: IDBExercise[] = [
     [Field.PARENT_STATUS]: ParentStatus.ENABLED,
     [Field.NAME]: 'Burpees',
     [Field.DESCRIPTION]: 'TODO DESCRIPTION',
-    [Field.EXERCISE_INPUTS]: [ExerciseInputs.MULTIPLE_SETS, ExerciseInputs.REPS],
+    [Field.EXERCISE_INPUTS]: [ExerciseInput.MULTIPLE_SETS, ExerciseInput.REPS],
   },
 ]
 

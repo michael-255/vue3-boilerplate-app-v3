@@ -4,13 +4,14 @@ import { Icon, AppColor } from '@/constants/app'
 import useSimpleDialogs from '@/use/useSimpleDialogs'
 import { ref, type Ref } from 'vue'
 import useLogger from '@/use/useLogger'
-import type { MeasurementInputs } from '@/constants/model'
+import type { MeasurementInput } from '@/constants/model'
 // import useOperationDialogStore from '@/stores/operation-dialog'
+import type { MeasurementCardInput } from '@/use/useDBMeasurements'
 
 const props = defineProps<{
   measurementId: string
   measurementName: string
-  measurementInputs: MeasurementInputs[]
+  cardInputs: MeasurementCardInput[]
 }>()
 
 const { log } = useLogger()
@@ -18,6 +19,8 @@ const { confirmDialog } = useSimpleDialogs()
 const inputRef: Ref<any> = ref(null)
 const inputNumber: Ref<number | null> = ref(null)
 const rules: Ref<any[]> = ref([])
+
+log.debug('CardInputs =', props.cardInputs)
 
 // try {
 //   if (props.measurementType === MeasurementType.PERCENT) {
@@ -65,57 +68,30 @@ async function onSave(): Promise<void> {
 function validateInput(): boolean {
   return !!inputRef?.value?.validate()
 }
+
+// function validateAllInputs(input: MeasurementInput): void {
+//   switch (input) {
+//     case MeasurementInput.LBS:
+//       [`inputRef_${input}`]?.value?.validate()
+//       break;
+
+//     default:
+//       break;
+//   }
+// }
 </script>
 
 <template>
-  <!-- <QInput
-    class="q-mt-md"
-    type="number"
-    ref="inputRef"
-    :rules="rules"
-    v-model="inputNumber"
-    dense
-    outlined
-    label="Test"
-    :placeholder="measurementInputs"
-    @blur="validateInput()"
-  >
-    <template v-slot:after>
-      <QBtn
-        :disable="!inputNumber || !validateInput()"
-        color="positive"
-        class="q-ml-sm q-px-sm"
-        :icon="Icon.SAVE"
-        @click="onSave()"
-      />
-    </template>
-  </QInput> -->
-
   <div class="row q-col-gutter-sm justify-start q-mt-sm">
-    <div class="col-12">
+    <div v-for="(cardInput, index) in cardInputs" :key="index" class="col-12">
       <QInput
         type="number"
-        ref="inputRef"
-        :rules="rules"
+        :ref="cardInput.ref"
+        :rules="[cardInput.rule]"
         v-model="inputNumber"
         dense
         outlined
-        label="Test"
-        :placeholder="measurementInputs"
-        @blur="validateInput()"
-      />
-    </div>
-
-    <div class="col-12">
-      <QInput
-        type="number"
-        ref="inputRef"
-        :rules="rules"
-        v-model="inputNumber"
-        dense
-        outlined
-        label="Test"
-        :placeholder="measurementInputs"
+        :label="cardInput.name"
         @blur="validateInput()"
       />
     </div>
@@ -130,6 +106,4 @@ function validateInput(): boolean {
       />
     </div>
   </div>
-
-  <!-- <QBtn class="q-mt-sm" color="positive" label="Save" /> -->
 </template>

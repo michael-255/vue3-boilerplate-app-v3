@@ -84,7 +84,7 @@ export enum MeasurementCategory {
   ATHLETICS = 'Athletics',
 }
 
-export enum MeasurementInputs {
+export enum MeasurementInput {
   LBS = 'Lbs',
   FEET = 'Feet',
   INCHES = 'Inches',
@@ -95,7 +95,7 @@ export enum MeasurementInputs {
   PAIN = 'Pain',
 }
 
-export enum ExerciseInputs {
+export enum ExerciseInput {
   REMINDER = 'Reminder',
   CONFIRMATION = 'Confirmation',
   MULTIPLE_SETS = 'Multiple Sets',

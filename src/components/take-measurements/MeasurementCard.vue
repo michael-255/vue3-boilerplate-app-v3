@@ -77,6 +77,7 @@ async function onReportDialog(): Promise<void> {
         :measurementId="measurementCard?.id"
         :measurementName="measurementCard?.name"
         :measurementInputs="measurementCard?.measurementInputs"
+        :cardInputs="measurementCard?.cardInputs"
       />
     </QCardSection>
   </QCard>
