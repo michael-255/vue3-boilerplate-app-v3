@@ -140,7 +140,8 @@ npm upgrade
 
 These are the general steps I took to create the initial project (vue3-boilerplate-app).
 
-- `npm init vue@latest` (selecting YES for most options)
+- `npm init vue@latest` (in your projects folder, must use Typescript)
+- cd to the project you created
 - `npm i uuid` (random ids)
 - `npm i -D @types/uuid`
 - `npm i luxon` (Javascript date utilities)
@@ -172,8 +173,8 @@ avoid using hash based routing.
 ```json
 {
   "scripts": {
-    "test": "vitest --environment jsdom",
-    "test:coverage": "vitest --environment jsdom --coverage",
+    "test": "vitest --environment jsdom --root src/",
+    "test:coverage": "vitest --environment jsdom --coverage --root src/",
     "deploy": "npm run build && cd dist && cp index.html 404.html && cd .. && gh-pages -d dist -m Deployment"
   }
 }

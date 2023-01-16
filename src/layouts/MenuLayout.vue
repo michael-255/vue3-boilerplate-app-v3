@@ -26,20 +26,13 @@ const route = useRoute()
     <!-- Header -->
     <QHeader elevated>
       <QToolbar>
-        <QBtn
-          dense
-          flat
-          round
-          :icon="Icon.MENU"
-          @click="mainMenuStore.drawer = !mainMenuStore.drawer"
-        />
+        <QBtn flat round :icon="Icon.MENU" @click="mainMenuStore.drawer = !mainMenuStore.drawer" />
 
         <QToolbarTitle>{{ AppString.APP_NAME }}</QToolbarTitle>
 
         <QBtn
           v-if="route.name !== RouteName.DASHBOARD"
           flat
-          dense
           :to="{ name: RouteName.DASHBOARD }"
           :icon="Icon.RETURN_TO_DASHBOARD"
         />
