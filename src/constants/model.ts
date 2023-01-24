@@ -66,7 +66,7 @@ export enum SettingKey {
   SHOW_CONSOLE_LOGS = 'show-console-logs',
   SHOW_DEBUG_MESSAGES = 'show-debug-messages',
   SAVE_INFO_MESSAGES = 'save-info-messages',
-  FAVORITE_PARENT_IDS = 'favorite-parent-ids',
+  FAVORITE_PARENT_IDS = 'favorite-parent-ids', // TODO - should be stored on the item itself
   ORPHANED_RECORD_IDS = 'orphaned-record-ids',
   ACTIVE_RECORD_IDS = 'active-record-ids',
   PARENTS_TABLE_VISIBLE_COLUMNS = 'parents-table-visible-columns',
